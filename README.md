@@ -28,7 +28,7 @@ Para la extraccion de datos con Web scraping tenemos que identificar el tema del
 
 3.  Se utiliza el siguiente codigo para generar los csv
 
-![image](https://user-images.githubusercontent.com/65979995/133650463-59c0172a-e5f0-447f-8730-bfa7c067fb73.png)
+Web_Scraping_Argentina.ipynb
 
 4.  Creamos la bse de datos en sql para la subida de datos
 
