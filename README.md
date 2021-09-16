@@ -87,19 +87,37 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 
 # Parte 2 Explicacion de caso y graficos.
 
+## Web Scraping
+
+Tabla y grafica de pais Argentina: El crecimiento constante del proceso de vacunacion en Argentina, se puede considerar como aceptable, debido a que hay que tener en cuenta al nivel poblacional del mismo.
+
+![image](https://user-images.githubusercontent.com/65979995/133667033-3bead1a0-0985-415e-9d51-2013780d7541.png)
+
+![image](https://user-images.githubusercontent.com/65979995/133667234-76a16dad-25e9-4cdb-8637-7e07aff9c3b8.png)
+
+Tabla y grafica de pais Chile: Chile al tener un nivel poblacional similar al de Ecuador, es el pais que ha logrado tener un mayor pocentaje de su poblacion completamente vacunados, esto indica la buena organizacion del gobierno para estas situaciones.
+
+![image](https://user-images.githubusercontent.com/65979995/133667828-251ead5c-ae95-44da-ba40-0e175d7b39ee.png)
+
+![image](https://user-images.githubusercontent.com/65979995/133667882-85cd0cc9-56bc-4751-8900-12935c541b0f.png)
+
+Tabla y grafica de pais Ecuador: Ecuador no muestra tambien un gran porcentaje de ciudadanos completamente vacunados, esto al tener en cuenta que se viene de un proceso de eleccion, nos indica un compromiso inicial del presidente con el país.
+
+![image](https://user-images.githubusercontent.com/65979995/133668188-f22f70d1-ad56-4840-9af9-c77789952a01.png)
+
+![image](https://user-images.githubusercontent.com/65979995/133668208-05ec0209-7ba3-47e7-9e8a-5c77b416d6ea.png)
+
+Tabla y grafica de pais Paraguay: Posiblemente sea uno de los paises con el peor proceso de vacunacion de latinoamerica, esto se puede deber a una falta de organizacion del gobierno para el conseguir insumos medicos.
+
+![image](https://user-images.githubusercontent.com/65979995/133668430-ad2a50ec-b09c-420d-9247-fdab934bed5d.png)
+
+![image](https://user-images.githubusercontent.com/65979995/133668503-54be3baf-1158-4742-8cb2-c7e031c8dc14.png)
+
+Tabla y grafica de pais Perú: Comparado a Argentina, Perú tiene un proceso de vacunacion lento y deficiente, que no permitira que tengan un proceso de vacunacion de forma correcta y les tome mas tiempo inmunisarce.
+
+![image](https://user-images.githubusercontent.com/65979995/133668804-14a112af-a922-4017-b80a-8d5fc8b25caf.png)
+
+![image](https://user-images.githubusercontent.com/65979995/133668837-fc688475-b752-4c4b-9f7b-3223fce46a7e.png)
 
 
-# INEC 
-En este caso, de acuerdo a nuestro diseño de arquitectura se utilizará directamente elasticsearch como concentrador de los datos de los archivos csv de INEC.Gracias a que INEC da la posibilidad de bajar archivos csv directamente de su sitio web.
-![imagen](https://user-images.githubusercontent.com/58041267/133668850-73540f3b-97da-42d4-971d-c6da920c46e7.png)
 
-
-El archivo csv obtenido tiene por nombre, egresos hospitalarios del año 2020  y es justamente con este archivo el que guardaremos como evento en el contenedor elasticsearch en la nube.
-![imagen](https://user-images.githubusercontent.com/58041267/133667563-b579e19d-bcac-417a-8eee-9cb08bd9341e.png)
-
-
-Como sabemos Logstash es parte del preprocesameinto antes de guardar la información en Elasticsearch, por lo tanto, el proceso básicamente consistió en: 
-1. Se procede a poner en marcha cerebro con el fin de poder conectarnos con elastic cloud, el cual hemos creado para uso del equipo del proyecto. 
-2. Poner en marcha logstash.
-3. Usando Kibana, importar el archivo csv mediante File Data Visualizer que se encuentra en la sección Machine Learning > Visualización de datos.
-4. Utilizando Discover y Visualizer, realizar la visualización de datos del archivo mediante gráficas.
