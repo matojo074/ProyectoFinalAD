@@ -1,14 +1,14 @@
 # Proyecto Final Analisis de Datos
 
 Integrantes:
--  
--
--
--
--
--
+- Mateo Borja
+- Stiven López 
+- Diana Almeida
+- Christian Soledispa
+- Mateo Cevallos
+- Josué Singaña
 
-
+# Parte 1: Extracción y Almacenamiento de Datos
 
 ## Extracción de datos "Facebook"
 
