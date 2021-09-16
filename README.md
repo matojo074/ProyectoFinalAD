@@ -38,6 +38,10 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
 
+5. A continuación podremos ver ya los índices creados con los datos en Elasticsearch
+![datosenelastic](https://user-images.githubusercontent.com/85883884/133688934-5e548da9-5e0b-4574-b52f-153a8881c894.png)
+
+
 
 ## Extraccion de datos "Twitter"
 
