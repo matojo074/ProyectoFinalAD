@@ -203,6 +203,25 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 
 ![image](https://user-images.githubusercontent.com/66144847/133680163-d53ab272-6edb-4765-957d-3491133938ea.png)
 
+#
+# Recopilacion de datos Tiktok
+Tiktok es una plataforma en la que los usuarios pueden subir videos publicos de hasta un minuto, en los videos se puede tener audio agregado, menciones, hashtags y trends. Estas caracteristicas de los videos pueden ser utilizados para su recopilación mediante el uso de tik-tok scraper, pasandolos como parametro definido para obtener la información con lo establecido. Y esto puede ser guardado en un archivo CSV.
+
+1. Para la recopilación se utiliza el comando tiktok-scraper con el parametro de hashtag asignando el de noticias para que recopile información de 20 videos con ese hashtag.
+![tiktok-scraper](https://user-images.githubusercontent.com/58042139/133685171-19e9c165-bf6d-47a8-bdc7-fb06597ee515.jpg)
+
+2. Una vez se obtenga la información de los videos recopilada se procede a realizar la limpieza con el operador de ReplaceMissingValues de RapidMiner el cual ayuda a remplazar los datos vacios.
+![replace missing values](https://user-images.githubusercontent.com/58042139/133685691-6e11739b-d4f9-495d-a739-3798cf3b6980.jpg)
+
+3. Ya con los datos limpios, se procede a importarlos a una base de datos local en MySQL.
+![subidamysql](https://user-images.githubusercontent.com/58042139/133685852-8c465d5a-9710-4e76-9544-7453fdb7d737.jpg)
+![noticias](https://user-images.githubusercontent.com/58042139/133685886-ce727941-c153-4bfb-81dd-0311abcd27f0.jpg)
+
+4. Con el archivo de configuración de Logstash se sube la información creando un nodo en la nube de Elastic
+![logstash2](https://user-images.githubusercontent.com/58042139/133686472-21bac47f-0843-498c-af40-f801e389d92c.jpg)
+
+![elastic](https://user-images.githubusercontent.com/58042139/133686266-e3c603fa-ac4f-45b2-b98f-40edc65e37eb.jpg)
+
 # Parte 2 Explicacion de caso y graficos.
 ## Facebbok
 Aqí se mostrará el proceso para visualizar los datos obtenidos de la extracción de facebook que en este caso son de videojuegos en línea espec+ificamente de FIFA desde páginas administradas por personas de diferentes paises de latinoamérica.
