@@ -98,6 +98,13 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![image](https://user-images.githubusercontent.com/66786471/133687628-8567ec94-770e-4548-b298-d12c3a1ec597.png)
 
+13. Ya con los satos en la nube preocedemos a crear un índice para poder realizar un timetable y manejar la tabla en referencia a esto.
+
+![image](https://user-images.githubusercontent.com/66786471/133688024-89d1d70d-f652-4d98-95c0-340aa5844337.png)
+
+14. por ultimo creamos una pizarra donde podremos tener todos los graficos para su analisis como en la imagen siguiente donde podemos ver a un lado izquierdo las palabras mas usadas en los tweets al igual que los mensajes mas retwiteados.
+
+![image](https://user-images.githubusercontent.com/66786471/133688233-a7aa76bd-fc67-47e9-b8c0-4a971d5dac42.png)
 
 
 
