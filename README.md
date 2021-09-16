@@ -33,13 +33,10 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
 
-
-
-
-
-
 ## Extraccion de datos "Twitter"
 
+La conexión a Twitter se puede realizar de varias maneras, en este caso decidemos empezar por la aplicación de RapidMiner que nos ofrece una conexión tanto con Twitter Developer como con MongoDB
+1.  Entramos a la aplicacion de RappidMiner
 
 ## Extracción de datos "Web scraping"
 Para la extraccion de datos con Web scraping tenemos que identificar el tema del cual vamos a extraer la información, en nuestro caso fue el porcentaje de población vacunada en diferentes países de Latinoamérica.
