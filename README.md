@@ -38,16 +38,10 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
 
-5. Luego de tener ya los datos almacenados en Elasticsearch procedemos a correr Kibana en la nube para poder utilizar estos datos en las visualizaciones empezando por la creación de los índices.
-![creacionindex](https://user-images.githubusercontent.com/85883884/133685550-6e94983b-46b1-49e5-8542-17f3500d8780.png)
+5. A continuación podremos ver ya los índices creados con los datos en Elasticsearch
+![datosenelastic](https://user-images.githubusercontent.com/85883884/133688934-5e548da9-5e0b-4574-b52f-153a8881c894.png)
 
-6. Una vez tengamos creados los índices procedemos a crear los dashboars para que así se muestren las visualizaciones de los diferentes índices que tenemos.
-![creaciondashboards](https://user-images.githubusercontent.com/85883884/133685583-705394d9-4b2b-4d36-b19a-7aa5eac40d59.png)
 
-7. Y al final tendremos las visualizaciones de cada uno de los índices.
-![visualizaciones1](https://user-images.githubusercontent.com/85883884/133685637-37588cbd-ae8c-4342-b6ff-de36ef6769f7.png)
-![visualizaciones2](https://user-images.githubusercontent.com/85883884/133685646-0a656a9e-d242-4120-b49c-f2368919be04.png)
-![visualizaciones3](https://user-images.githubusercontent.com/85883884/133685656-5355be0c-bed8-475f-91e9-ec47d660117a.png)
 
 ## Extraccion de datos "Twitter"
 
@@ -64,6 +58,47 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 3. Para poder cosechar de mejor manera los datos crearemos un proceso con 4 buscadores de Twitter donde cada uno llevara una palabra clave diferente.
 
 ![image](https://user-images.githubusercontent.com/66786471/133686969-db8bcb0a-8810-4694-a97e-4bfd0cceaa84.png)
+
+4.  Ya una vez listo, seleccionaremos los atributos que deseamos recolectar gracias a un operador como se muestra en la siguiente imagen. 
+
+![image](https://user-images.githubusercontent.com/66786471/133687070-b16818b1-70d4-421f-ab55-a4b2ec32f727.png)
+
+5.  Junto a estos seleccionadores añadiremos un transformador de DATA a JSON con el fin de que los archivos guardados en MongoDB sean JSON para mayor facilidad.
+
+![image](https://user-images.githubusercontent.com/66786471/133687317-9c72f875-1f78-41af-afe1-9343f01ecbee.png)
+
+6.  Ya una vez transformada la información pasamos a crear otra conexión pero esta vez para MongoDB y de igual manera usar el operador Retrive junto Multiply que nos ayudara a crear copias de objetos de RapidMiner y también un operador de escritura en mongo donde ingresaremos cada unos de los JSON convertidos y estableceremos la conexión con la base de datos. 
+
+![image](https://user-images.githubusercontent.com/66786471/133687352-55624e0e-6b15-49a1-a0db-a54a9ee991fa.png)
+
+7.  Una vez realizado este procedimiento con cada una de las coordenadas respectivas a cada ciudad podemos evidenciar la información recolectada en nuestro MongoDB donde tenemos la base de datos Titter_Mongo y la colección Pulso_Politico20 con 402 documentos registrados.
+
+![image](https://user-images.githubusercontent.com/66786471/133687402-519f87fb-0423-4a20-a79c-b390fd35c327.png)
+
+8.  Para poder conectarnos a elasticsearch se intentó con varios métodos desde códigos, hasta transferir la conexión a CouchDB sin embargo el único camino que dio resultado fue importar los datos de Mongo en un archivo CSV  y posterior a ello subirlos a phpMyAdmin.
+
+![image](https://user-images.githubusercontent.com/66786471/133687441-6ccd5122-5235-4e0f-82e8-b7684e06e67d.png)
+
+10. Una vez ya generado el CSV exitosamente se procede a crear la base de datos Twitter2Mongo.
+
+![image](https://user-images.githubusercontent.com/66786471/133687484-13a94d92-c4f9-417e-81e5-1f04a3522ca6.png)
+![image](https://user-images.githubusercontent.com/66786471/133687491-09c71857-4dbf-4cec-bc85-9d7bc250e934.png)
+
+11. Ahora para la conexión respectiva con Elasticsearch nos ayudaremos de la herramienta Logstash que nos permite una conexión con la aplicación de Elastic en la nube. Para ello necesitaremos de un archivo de configuración como el siguiente en la carpeta bin de logstash.
+
+![image](https://user-images.githubusercontent.com/66786471/133687564-dd018db7-7855-4c69-8f22-459d7dd11e4c.png)
+
+12. Corremos el logstash y esperamos hasta que la base de datos sea subida correctamente.
+
+![image](https://user-images.githubusercontent.com/66786471/133687628-8567ec94-770e-4548-b298-d12c3a1ec597.png)
+
+13. Ya con los satos en la nube preocedemos a crear un índice para poder realizar un timetable y manejar la tabla en referencia a esto.
+
+![image](https://user-images.githubusercontent.com/66786471/133688024-89d1d70d-f652-4d98-95c0-340aa5844337.png)
+
+14. por ultimo creamos una pizarra donde podremos tener todos los graficos para su analisis como en la imagen siguiente donde podemos ver a un lado izquierdo las palabras mas usadas en los tweets al igual que los mensajes mas retwiteados.
+
+![image](https://user-images.githubusercontent.com/66786471/133688233-a7aa76bd-fc67-47e9-b8c0-4a971d5dac42.png)
 
 
 
@@ -169,6 +204,19 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 ![image](https://user-images.githubusercontent.com/66144847/133680163-d53ab272-6edb-4765-957d-3491133938ea.png)
 
 # Parte 2 Explicacion de caso y graficos.
+## Facebbok
+Aqí se mostrará el proceso para visualizar los datos obtenidos de la extracción de facebook que en este caso son de videojuegos en línea espec+ificamente de FIFA desde páginas administradas por personas de diferentes paises de latinoamérica.
+
+1. Luego de tener ya los datos almacenados en Elasticsearch procedemos a correr Kibana en la nube para poder utilizar estos datos en las visualizaciones empezando por la creación de los índices.
+![creacionindex](https://user-images.githubusercontent.com/85883884/133685550-6e94983b-46b1-49e5-8542-17f3500d8780.png)
+
+2. Una vez tengamos creados los índices procedemos a crear los dashboars para que así se muestren las visualizaciones de los diferentes índices que tenemos.
+![creaciondashboards](https://user-images.githubusercontent.com/85883884/133685583-705394d9-4b2b-4d36-b19a-7aa5eac40d59.png)
+
+3. Y al final tendremos las visualizaciones de cada uno de los índices.
+![visualizaciones1](https://user-images.githubusercontent.com/85883884/133685637-37588cbd-ae8c-4342-b6ff-de36ef6769f7.png)
+![visualizaciones2](https://user-images.githubusercontent.com/85883884/133685646-0a656a9e-d242-4120-b49c-f2368919be04.png)
+![visualizaciones3](https://user-images.githubusercontent.com/85883884/133685656-5355be0c-bed8-475f-91e9-ec47d660117a.png)
 
 ## Web Scraping
 ### Caso 1 : Proceso de vacunación y administración en diferentes países latinoamericanos.
