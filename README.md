@@ -22,23 +22,19 @@ Para la extraccion de datos con Web scraping tenemos que identificar el tema del
 
 ![image](https://user-images.githubusercontent.com/65979995/133649835-32b99e81-de43-4bf7-9ef9-cc805c9f86d2.png)
 
-2.  Se utiliza el siguiente código para la extracción de datos.
+2.  Se utiliza el siguiente codigo para generar los csv
 
-![image](https://user-images.githubusercontent.com/65979995/133649962-5d489a56-4b56-452a-bf8f-4315e06a4ac0.png)
+https://github.com/matojo074/ProyectoFinalAD/blob/a2c7e7fdcd6f88c369a76186978de1ebe18a818d/Web%20Scraping/Web%20Scraping%20Argentina.ipynb
 
-3.  Se utiliza el siguiente codigo para generar los csv
-
-![image](https://user-images.githubusercontent.com/65979995/133650463-59c0172a-e5f0-447f-8730-bfa7c067fb73.png)
-
-4.  Creamos la bse de datos en sql para la subida de datos
+3.  Creamos la bse de datos en sql para la subida de datos
 
 ![image](https://user-images.githubusercontent.com/65979995/133650733-0117ca87-8e7f-4dc0-b932-58066c13c709.png)
 
-5.  Acedemos a la configuracion de subida de archivo
+4.  Acedemos a la configuracion de subida de archivo
 
 ![image](https://user-images.githubusercontent.com/65979995/133651033-1af3406b-7368-45f1-8979-9f53a1375bea.png)
 
-6. Importamos los CSV y damos next hasta que se suban
+5. Importamos los CSV y damos next hasta que se suban
 
 ![image](https://user-images.githubusercontent.com/65979995/133651171-41c5a56a-3fa6-4085-8253-d39e8b4849bb.png)
 
@@ -46,11 +42,11 @@ Nota: en caso que se vea necesario, sql nos permite cambiar las variables.
 
 ![image](https://user-images.githubusercontent.com/65979995/133651338-b3eddc62-de13-437c-ae83-f8dd641a6733.png)
 
-7.  Para evitar errores, se transferiran los datos de SQL Server a MySQL, para ello se utilizo MySQL Workbench que facilita la tranferencia sin errores y datos limpios sin afectacion, primero entramos MySQL y vamos a database.
+6.  Para evitar errores, se transferiran los datos de SQL Server a MySQL, para ello se utilizo MySQL Workbench que facilita la tranferencia sin errores y datos limpios sin afectacion, primero entramos MySQL y vamos a database.
 
 ![image](https://user-images.githubusercontent.com/65979995/133652770-f4987c70-204f-47f4-b39d-2170a6899089.png)
 
-8. Damos clic en ODBC administrator, una vez dentro creamos el odcb para la coneccion con SQL server, los campos que vienen por defecto se los deja y se da next
+7. Damos clic en ODBC administrator, una vez dentro creamos el odcb para la coneccion con SQL server, los campos que vienen por defecto se los deja y se da next
 
 ![image](https://user-images.githubusercontent.com/65979995/133652945-9a6fa400-2e65-46f9-8723-967256893d3b.png)
 
@@ -58,7 +54,7 @@ Nota: en caso que se vea necesario, sql nos permite cambiar las variables.
 
 ![image](https://user-images.githubusercontent.com/65979995/133653076-e5d55dd6-0ab2-4462-8ac2-a09ca8d1cea9.png)
 
-9. Nos dirijimos a start migration, en esta seccion solo es de configurar las secciones que se presentan a continuacion.
+8. Nos dirijimos a start migration, en esta seccion solo es de configurar las secciones que se presentan a continuacion.
 
 ![image](https://user-images.githubusercontent.com/65979995/133653824-e4e94c1e-79af-4bd1-b462-0953cf8c9edc.png)
 
@@ -70,11 +66,11 @@ Nota: para mejorar la configuracion y como opcional, es la seccion que se presen
 
 ![image](https://user-images.githubusercontent.com/65979995/133654225-dfc9db03-3515-4ed5-8455-fb469559b715.png)
 
-10. Se procede a jubir al logstash, para este paso se creo un jdbc del cual se fue modificando en cada subida de datos, para poder subir los datos de todas las tablas.
+9 Se procede a subir al logstash, para este paso se creo un jdbc del cual se fue modificando en cada subida de datos, para poder subir los datos de todas las tablas.
 
-![image](https://user-images.githubusercontent.com/65979995/133654412-c4f1909a-37cc-4f44-92a2-20e08afb914e.png)
 
-11. Para poder comenzar la subida, no dirijimos en nuestro terminal a la carpeta que contenga el ejecutable de logstash y el jdbc.conf (usualmente se ponen en la misma carpeta) y ejecutamos el comando "  logstash -f jdbc.conf  " (sin comillas), y posterior a ellos se verifica en elastic la subida de datos
+
+10. Para poder comenzar la subida, no dirijimos en nuestro terminal a la carpeta que contenga el ejecutable de logstash y el jdbc.conf (usualmente se ponen en la misma carpeta) y ejecutamos el comando "  logstash -f jdbc.conf  " (sin comillas), y posterior a ellos se verifica en elastic la subida de datos
 
 ![image](https://user-images.githubusercontent.com/65979995/133654816-2fc0feca-2e35-440a-b511-f5028c2456db.png)
 
