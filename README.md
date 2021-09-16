@@ -218,6 +218,8 @@ Aqí se mostrará el proceso para visualizar los datos obtenidos de la extracci�
 ![visualizaciones2](https://user-images.githubusercontent.com/85883884/133685646-0a656a9e-d242-4120-b49c-f2368919be04.png)
 ![visualizaciones3](https://user-images.githubusercontent.com/85883884/133685656-5355be0c-bed8-475f-91e9-ec47d660117a.png)
 
+## Twitter
+
 ## Web Scraping
 ### Caso 1 : Proceso de vacunación y administración en diferentes países latinoamericanos.
 Tabla y grafica de pais Argentina: El crecimiento constante del proceso de vacunacion en Argentina, se puede considerar como aceptable, debido a que hay que tener en cuenta al nivel poblacional del mismo.
