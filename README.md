@@ -14,11 +14,16 @@ Integrantes:
 Para la extraccion de datos de Facebook primero debemos definir qué datos necesitamos que en este caso serán de juegos en líea qu en este caso serán de las páginas de FIFA de diferentes países como Ecuador, Argentina, Colombia, México y de la página oficial de EA sports y luego se utilizó un script de extracción de datos para realizarlo.
 
 1. Antes de correr el script en python para extraer los datos se debe correr el elasticsearchcon el siguiente comando en el terminal.
+
+
 ![comandoElastic](https://user-images.githubusercontent.com/85883884/133670480-d80e7742-de10-47db-9f66-80eecc6f7e8a.png)
 
     1.1 Como Elastcsearch no tiene interfaz gráfica se presentará de la siguiente manera.
     
+    
 ![elasticsininterfaz](https://user-images.githubusercontent.com/85883884/133671352-526be8c5-46e6-47e7-a72f-8b49d3037ef1.png)
+
+
 
 2. Para que Elasticsearch tenga una interfaz y podamos ver los datos qeu se almacenen necesitaremos de cerebro que se lo ejecuta de la siguiente manera desde la terminal.
 
@@ -33,64 +38,24 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
 
+5. Luego de tener ya los datos almacenados en Elasticsearch procedemos a correr Kibana en la nube para poder utilizar estos datos en las visualizaciones empezando por la creación de los índices.
+![creacionindex](https://user-images.githubusercontent.com/85883884/133685550-6e94983b-46b1-49e5-8542-17f3500d8780.png)
+
+6. Una vez tengamos creados los índices procedemos a crear los dashboars para que así se muestren las visualizaciones de los diferentes índices que tenemos.
+![creaciondashboards](https://user-images.githubusercontent.com/85883884/133685583-705394d9-4b2b-4d36-b19a-7aa5eac40d59.png)
+
+7. Y al final tendremos las visualizaciones de cada uno de los índices.
+![visualizaciones1](https://user-images.githubusercontent.com/85883884/133685637-37588cbd-ae8c-4342-b6ff-de36ef6769f7.png)
+![visualizaciones2](https://user-images.githubusercontent.com/85883884/133685646-0a656a9e-d242-4120-b49c-f2368919be04.png)
+![visualizaciones3](https://user-images.githubusercontent.com/85883884/133685656-5355be0c-bed8-475f-91e9-ec47d660117a.png)
+
+
+
+
+
+
+
 ## Extraccion de datos "Twitter"
-
-La conexión a Twitter se puede realizar de varias maneras, en este caso decidemos empezar por la aplicación de RapidMiner que nos ofrece una conexión tanto con Twitter Developer como con MongoDB
-1.  Entramos a la aplicacion de RappidMiner y creamos la conexión a Twitter.
-
-![image](https://user-images.githubusercontent.com/66786471/133682243-f1fb9e31-0045-479e-8b1f-31b2abbdc7e8.png)
-
-![image](https://user-images.githubusercontent.com/66786471/133682261-ea1cece5-764b-45d8-b51d-5f4a8afe6335.png)
-
-2.  Ya una vez generada seleccionamos los operadores Retrieve y Search Twitter para poder establecer la conexión creada junto con lo que deseamos buscar en Twitter que en este caso es el pulso político de 20 ciudades del Ecuador. Para poder cosechar los datos ingresaremos en los campos la palabra a buscar y habilitaremos la geolocalización donde nos pide coordenadas de latitud y longitud aparte de un radio de extensión de la ciudad.
-
-![image](https://user-images.githubusercontent.com/66786471/133682393-a46539c0-3a6a-40a0-b0af-d5e4d3018934.png)
-![image](https://user-images.githubusercontent.com/66786471/133682401-90e7e5f3-6ead-4517-a9c3-6eece9b4bdee.png)
-
-3.  Para poder cosechar de mejor manera los datos crearemos un proceso con 4 buscadores de Twitter donde cada uno llevara una palabra clave diferente.
-
-![image](https://user-images.githubusercontent.com/66786471/133682577-1f29424e-b65e-4450-8631-7c578109cc11.png)
-
-4.  Ya una vez listo, seleccionaremos los atributos que deseamos recolectar gracias a un operador como se muestra en la siguiente imagen. 
-
-![image](https://user-images.githubusercontent.com/66786471/133682635-ba637049-5f7c-434f-8e2a-9d0f1ab73996.png)
-
-5.  Junto a estos seleccionadores añadiremos un transformador de DATA a JSON con el fin de que los archivos guardados en MongoDB sean JSON para mayor facilidad.
-
-![image](https://user-images.githubusercontent.com/66786471/133682760-2fa98da0-7c21-4a87-9720-798f08b4bade.png)
-
-6.  Ya una vez transformada la información pasamos a crear otra conexión pero esta vez para MongoDB y de igual manera usar el operador Retrive junto Multiply que nos ayudara a crear copias de objetos de RapidMiner y también un operador de escritura en mongo donde ingresaremos cada unos de los JSON convertidos y estableceremos la conexión con la base de datos. 
-
-![image](https://user-images.githubusercontent.com/66786471/133682791-5a94c9a2-69c0-4b06-a2d2-178ae5e8249f.png)
-
-7.  Una vez realizado este procedimiento con cada una de las coordenadas respectivas a cada ciudad podemos evidenciar la información recolectada en nuestro MongoDB donde tenemos la base de datos Titter_Mongo y la colección Pulso_Politico20 con 402 documentos registrados.
-
-![image](https://user-images.githubusercontent.com/66786471/133682832-b8aeb8c3-453e-464e-8cac-f7afe5aadd14.png)
-
-8.  Para poder conectarnos a elasticsearch se intentó con varios métodos desde códigos, hasta transferir la conexión a CouchDB sin embargo el único camino que dio resultado fue importar los datos de Mongo en un archivo CSV  y posterior a ello subirlos a phpMyAdmin.
-
-![image](https://user-images.githubusercontent.com/66786471/133682899-6ee82536-38f6-4b3d-9bf8-f35ef275d943.png)
-
-9.  Una vez ya generado el CSV exitosamente se procede a crear la base de datos Twitter2Mongo.
-
-![image](https://user-images.githubusercontent.com/66786471/133682984-009cdd05-82a7-40b1-b7b6-d8a1824be0bb.png)
-![image](https://user-images.githubusercontent.com/66786471/133683019-43b14ff2-d252-4a50-8898-3d4a1e2931c2.png)
-
-10. Ahora para la conexión respectiva con Elasticsearch nos ayudaremos de la herramienta Logstash que nos permite una conexión con la aplicación de Elastic en la nube. Para ello necesitaremos de un archivo de configuración como el siguiente en la carpeta bin de logstash.
-
-![image](https://user-images.githubusercontent.com/66786471/133683043-2f38647b-3be4-4769-a20b-c0b79c633cf8.png)
-
-11. Corremos el logstash y esperamos hasta que la base de datos sea subida correctamente.
-
-![image](https://user-images.githubusercontent.com/66786471/133683103-b20fd746-289e-4ca2-b5d1-d979773ed120.png)
-
-12. Ahora procedemos a la creación de las graficas para su analisis. Empezamos creando un un indice desde el manejo de indices para poder establecer el timetable donde nos ubicara en el tiempo los datos.
-
-![image](https://user-images.githubusercontent.com/66786471/133684176-d3195351-aeb9-436a-b2e6-9e2608e8bb0b.png)
-
-13. procedemos a crear un pizarra donde podremos manejar varios graficos y posterior a ello analizarlso.
-
-![image](https://user-images.githubusercontent.com/66786471/133684560-a82e2eda-1dc6-41a0-829c-e55fd2dc1f6f.png)
 
 
 ## Extracción de datos "Web scraping"
@@ -227,6 +192,47 @@ Tabla y grafica de pais Perú: Comparado a Argentina, Perú tiene un proceso de 
 ![image](https://user-images.githubusercontent.com/65979995/133668804-14a112af-a922-4017-b80a-8d5fc8b25caf.png)
 
 ![image](https://user-images.githubusercontent.com/65979995/133668837-fc688475-b752-4c4b-9f7b-3223fce46a7e.png)
+
+# INEC
+
+En este caso, de acuerdo a nuestro diseño de arquitectura se utilizará directamente elasticsearch como concentrador de los datos de los archivos csv de INEC.Gracias a que INEC da la posibilidad de bajar archivos csv directamente de su sitio web. 
+
+
+![imagen](https://user-images.githubusercontent.com/58041267/133682139-5cb091e4-19f4-4ab2-9c67-45fbfde68605.png)
+
+
+El archivo csv obtenido tiene por nombre, egresos hospitalarios del año 2020 y es justamente con este archivo el que guardaremos como evento en el contenedor elasticsearch en la nube.
+
+
+![imagen](https://user-images.githubusercontent.com/58041267/133682194-e30f3bee-132a-479b-8789-bead6af6aad8.png)
+
+
+Como sabemos Logstash es parte del preprocesameinto antes de guardar la información en Elasticsearch, por lo tanto, el proceso básicamente consistió en:
+
+1. Se procede a poner en marcha cerebro con el fin de poder conectarnos con elastic cloud, el cual hemos creado para uso del equipo del proyecto.
+
+
+![imagen](https://user-images.githubusercontent.com/58041267/133683051-c2013c0e-a6a3-4996-b329-2f1c8e0cf9e5.png)
+
+
+
+2. Poner en marcha logstash.
+
+
+![imagen](https://user-images.githubusercontent.com/58041267/133683102-ebe09887-c5bd-4af8-b095-9ec7fbf0018e.png)
+
+3. Usando Kibana, importar el archivo csv mediante File Data Visualizer que se encuentra en la sección Machine Learning > Visualización de datos
+
+
+![imagen](https://user-images.githubusercontent.com/58041267/133683186-88bba947-481d-40f2-9e33-0c24134c82e7.png)
+![imagen](https://user-images.githubusercontent.com/58041267/133683343-1e252b8b-2a7f-4de1-8054-4849431f49fe.png)
+![imagen](https://user-images.githubusercontent.com/58041267/133683379-ee940b84-f52c-4750-a905-c6a90ad199a6.png)
+
+4. Utilizando Discover y Visualizer, realizar la visualización de datos del archivo mediante gráficas.
+
+
+![imagen](https://user-images.githubusercontent.com/58041267/133683498-96f711e4-6c3b-4514-904a-97d0d7612426.png)
+![imagen](https://user-images.githubusercontent.com/58041267/133683548-6071f3ca-457b-41e3-93da-84d4e4acab6a.png)
 
 
 
