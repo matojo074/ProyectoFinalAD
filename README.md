@@ -320,7 +320,7 @@ Como sabemos Logstash es parte del preprocesameinto antes de guardar la informac
 
 
 
-# Tiktok Scraper
+## Tiktok Scraper
 Para realizar las visualizaciones se utiliza Kibana dentro de logstash lo cual permite mediante los datos crear visualizaciones, para ello se puede usar el nodo existente en elastic o cargar manualmente la data.
 Una vez se tenga la data se pueden observar los campos que tiene.
 ![limpieza4](https://user-images.githubusercontent.com/58042139/133687534-ed48b734-0846-49a7-9413-e7a1b25bb978.jpg)
@@ -342,4 +342,41 @@ Ya con el archivo cargado con sus campos correspondientes se procede a realizar 
 ### Caso 4: En este caso se utilizo un diagrama de barras horizontales para analizar el número de comentarios que reciben los titulos de los videos.
 
 ![image](https://user-images.githubusercontent.com/58042139/133689724-4f79d45f-83e2-4f31-834a-db36bcdc0b70.png)
+
+
+## Videojuegos más populares según países (Kaggle)
+Basándose en la información obtenida en el dataset sacado de Kaggle, se puede deducir a simple vista cual es el juego más popular en cada país (la tabla literalmente lo dice), pero, al realizar visualizaciones se pueden comparar los campos dados para obtener otros resultados interesantes.
+Para realizar visualizaciones se utiliza Kibana, una herramienta que se conecta directamente a ElasticSearch y permite construir todo tipo de gráficos con los índices que están almacenados. Pero antes de que los datos puedan representarse gráficamente, se debe crear un patrón de índice, para esto se despliega el menu en la página principal de Kibana y se selecciona Stack managemente
+
+![image](https://user-images.githubusercontent.com/66144847/133682728-73f7c223-c06b-4d31-ad70-533e78ae46c4.png)
+
+Luego se debe crear un patrón de índice seleccionando el índice de la lista (la misma lista que está en ElasticSearch)
+
+![image](https://user-images.githubusercontent.com/66144847/133682961-601a03f4-4887-4ac9-aff5-d933fbfc9f1f.png)
+
+Se añade el campo timestamp y el índice quedará guardado. Timestamp no es de utilidad en este caso pués los datos son estáticos, pero se lo agrega de todas formas para crear el índice.
+
+![image](https://user-images.githubusercontent.com/66144847/133683136-4d73d2fc-d743-46f8-a7f3-ae30ee9308ec.png)
+
+Hecho esto, se puede volver a la página de inicio y seleccionar dashboard. Se puede crear un dashboard para observar toda las visualizaciones de un índice, si no se ha creado uno, se lo puede hacer con el botón create dashboard. Dentro del dashboard habrá un botón para crear visualizaciones, al seleccionarlo, se abrirá un editor donde se deberá seleccionar el tipo de gráfico, el patrón de índice a utilizar y las columnas del índice para construir el gráfico.
+
+![image](https://user-images.githubusercontent.com/66144847/133683486-9c12bc9d-7948-4ea4-8b3e-5c887887c037.png)
+
+Dependerá de los datos el tipo de gráfico que se pueda hacer, se deberán conocer las columnas y experimentar para averiguar que tipo de gráfico permite visualizar mejor la información.
+Para este caso se construyeron dos gráficos:
+
+![image](https://user-images.githubusercontent.com/66144847/133683691-c1c683ad-7a34-4ec4-86da-8a2b630f9fec.png)
+
+Este gráfico muestra el juego más popular a nivel mundial, para hallar esto, se agregaron las apariciones de un juego como más popular en varios países y se creó un total que permite concluir que el juego más popular del mundo se ganó ese título ya que una mayoría de países lo consideraron como el más popular dentro de sus países. Por otro lado, el juego menos popular solo fue seleccionado en un solo país.
+
+![image](https://user-images.githubusercontent.com/66144847/133684024-a697e031-ab5d-48f6-bb77-0c77530a4a61.png)
+
+El segundo gráfico permite ver en que coordenadas un juego es popular, el dataset especificaba las coordenadas de los países que eligieron al juego más popular, por ende, si se saca el promedio de todas las coordenadas que eligieron un mismo juego se puede observar el promedio de las coordenadas donde cada juego es jugado, esto se ilustó con un gráfico de barras apiladas
+
+![image](https://user-images.githubusercontent.com/66144847/133684469-bf0cbf2b-31da-458d-b142-c4abf5759ae5.png)
+
+Una vez creados y guardados estos gráficos, se podrá observar como el dashboard los muestra
+
+![image](https://user-images.githubusercontent.com/66144847/133684534-5c8dd0db-5b9f-4ed8-9ab5-fb251c0738eb.png)
+
 
