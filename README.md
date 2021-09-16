@@ -11,7 +11,7 @@ Integrantes:
 # Parte 1: Extracción y Almacenamiento de Datos
 
 ## Extracción de datos "Facebook"
-
+Para la extraccion de datos de Facebook primero debemos definir qué datos necesitamos que en este caso serán de juegos en líea qu en este caso serán de las páginas de FIFA de diferentes países como Ecuador, Argentina, Colombia, México y de la página oficial de EA sports.
 
 ## Extraccion de datos "Twitter"
 
@@ -68,7 +68,7 @@ Nota: para mejorar la configuracion y como opcional, es la seccion que se presen
 
 9. Se procede a subir al logstash, para este paso se creo un jdbc del cual se fue modificando en cada subida de datos, para poder subir los datos de todas las tablas.
 
-JDBC.conf
+https://github.com/matojo074/ProyectoFinalAD/blob/4356db33aeb1dbdf3c4e95940dcf015c067abb5d/Web%20Scraping/jdbc.conf
 
 10. Para poder comenzar la subida, nos dirijimos en nuestro terminal a la carpeta que contenga el ejecutable de logstash y el jdbc.conf (usualmente se ponen en la misma carpeta) y ejecutamos el comando "  logstash -f jdbc.conf  " (sin comillas), y posterior a ellos se verifica en elastic la subida de datos
 
