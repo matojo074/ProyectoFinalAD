@@ -11,18 +11,6 @@ Integrantes:
 # Parte 1: Extracción y Almacenamiento de Datos
 
 ## Extracción de datos "Facebook"
-Para la extracción de datos de Facebook primero se identificó el tipo de datos que se quiere extraer que en este caso fueron juegos en línea precisamente de FIFA de algunos países de latinomaérica como Ecuador, Argentina, México, Colombia y de la página oficial de EA sports.
-1. Script para extraer datos
-![script1](https://user-images.githubusercontent.com/85883884/133667930-933f99e0-0f37-49f1-9cac-65a4703277ce.png)
-![script2](https://user-images.githubusercontent.com/85883884/133667954-73f4e559-e501-4067-b924-33722f51dda0.png)
-![script3](https://user-images.githubusercontent.com/85883884/133667978-2fe6521e-3eab-4dd0-ad51-ed93f6fbf876.png)
-
-2.Bases de datos cradas de los diferentes países con los datos extraídos
-![couchBases](https://user-images.githubusercontent.com/85883884/133668166-747436f5-ee07-493b-8d86-ada4c982e51c.png)
-2.1 Comprobación de que los datos hayan sido extraídos
-![comprobacionDatosCouch](https://user-images.githubusercontent.com/85883884/133668253-bd2f558d-c139-4495-8556-f49c86c7de13.png)
-2.2 Ejemplo de uno de los datós extraídos
-![datoscouch](https://user-images.githubusercontent.com/85883884/133668312-d0b2ab93-5f97-47cc-ae7c-b39495f27682.png)
 
 
 ## Extraccion de datos "Twitter"
@@ -96,3 +84,22 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 ![image](https://user-images.githubusercontent.com/66144847/133665096-b4b35fac-2f6f-47c7-b401-f8eaaa331a94.png)
 
 
+
+# Parte 2 Explicacion de caso y graficos.
+
+
+
+# INEC 
+En este caso, de acuerdo a nuestro diseño de arquitectura se utilizará directamente elasticsearch como concentrador de los datos de los archivos csv de INEC.Gracias a que INEC da la posibilidad de bajar archivos csv directamente de su sitio web.
+![imagen](https://user-images.githubusercontent.com/58041267/133667502-ceb8d174-e6e9-4fbe-a3b9-4b1e795e1d27.png)
+
+
+El archivo csv obtenido tiene por nombre, egresos hospitalarios del año 2020  y es justamente con este archivo el que guardaremos como evento en el contenedor elasticsearch en la nube.
+![imagen](https://user-images.githubusercontent.com/58041267/133667563-b579e19d-bcac-417a-8eee-9cb08bd9341e.png)
+
+
+Como sabemos Logstash es parte del preprocesameinto antes de guardar la información en Elasticsearch, por lo tanto, el proceso básicamente consistió en: 
+1. Se procede a poner en marcha cerebro con el fin de poder conectarnos con elastic cloud, el cual hemos creado para uso del equipo del proyecto. 
+2. Poner en marcha logstash.
+3. Usando Kibana, importar el archivo csv mediante File Data Visualizer que se encuentra en la sección Machine Learning > Visualización de datos.
+4. Utilizando Discover y Visualizer, realizar la visualización de datos del archivo mediante gráficas.
