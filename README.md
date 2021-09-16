@@ -49,6 +49,9 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 ![creaciondashboards](https://user-images.githubusercontent.com/85883884/133676926-ad11c35d-3bf3-4f91-968c-cf866b6b0fd8.png)
 
 7. Visualizaciones de cada uno de los índices.
+![visualizaciones1](https://user-images.githubusercontent.com/85883884/133677865-deb79119-0a6e-4fe1-bf64-b4a91491e23b.png)
+![visualizaciones2](https://user-images.githubusercontent.com/85883884/133677893-1e4e952f-5af9-426f-825e-5d59640a251e.png)
+![visualizaciones3](https://user-images.githubusercontent.com/85883884/133677908-8b38d9d3-fb64-4f34-ad15-9be285e68230.png)
 
 
 
