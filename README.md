@@ -65,6 +65,10 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![image](https://user-images.githubusercontent.com/66786471/133686969-db8bcb0a-8810-4694-a97e-4bfd0cceaa84.png)
 
+4.  Ya una vez listo, seleccionaremos los atributos que deseamos recolectar gracias a un operador como se muestra en la siguiente imagen. 
+
+![image](https://user-images.githubusercontent.com/66786471/133687070-b16818b1-70d4-421f-ab55-a4b2ec32f727.png)
+
 
 
 ## Extracción de datos "Web scraping"
