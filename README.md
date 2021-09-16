@@ -47,6 +47,44 @@ La conexión a Twitter se puede realizar de varias maneras, en este caso decidem
 ![image](https://user-images.githubusercontent.com/66786471/133682393-a46539c0-3a6a-40a0-b0af-d5e4d3018934.png)
 ![image](https://user-images.githubusercontent.com/66786471/133682401-90e7e5f3-6ead-4517-a9c3-6eece9b4bdee.png)
 
+3.  Para poder cosechar de mejor manera los datos crearemos un proceso con 4 buscadores de Twitter donde cada uno llevara una palabra clave diferente.
+
+![image](https://user-images.githubusercontent.com/66786471/133682577-1f29424e-b65e-4450-8631-7c578109cc11.png)
+
+4.  Ya una vez listo, seleccionaremos los atributos que deseamos recolectar gracias a un operador como se muestra en la siguiente imagen. 
+
+![image](https://user-images.githubusercontent.com/66786471/133682635-ba637049-5f7c-434f-8e2a-9d0f1ab73996.png)
+
+5.  Junto a estos seleccionadores añadiremos un transformador de DATA a JSON con el fin de que los archivos guardados en MongoDB sean JSON para mayor facilidad.
+
+![image](https://user-images.githubusercontent.com/66786471/133682760-2fa98da0-7c21-4a87-9720-798f08b4bade.png)
+
+6.  Ya una vez transformada la información pasamos a crear otra conexión pero esta vez para MongoDB y de igual manera usar el operador Retrive junto Multiply que nos ayudara a crear copias de objetos de RapidMiner y también un operador de escritura en mongo donde ingresaremos cada unos de los JSON convertidos y estableceremos la conexión con la base de datos. 
+
+![image](https://user-images.githubusercontent.com/66786471/133682791-5a94c9a2-69c0-4b06-a2d2-178ae5e8249f.png)
+
+7.  Una vez realizado este procedimiento con cada una de las coordenadas respectivas a cada ciudad podemos evidenciar la información recolectada en nuestro MongoDB donde tenemos la base de datos Titter_Mongo y la colección Pulso_Politico20 con 402 documentos registrados.
+
+![image](https://user-images.githubusercontent.com/66786471/133682832-b8aeb8c3-453e-464e-8cac-f7afe5aadd14.png)
+
+8.  Para poder conectarnos a elasticsearch se intentó con varios métodos desde códigos, hasta transferir la conexión a CouchDB sin embargo el único camino que dio resultado fue importar los datos de Mongo en un archivo CSV  y posterior a ello subirlos a phpMyAdmin.
+
+![image](https://user-images.githubusercontent.com/66786471/133682899-6ee82536-38f6-4b3d-9bf8-f35ef275d943.png)
+
+9.  Una vez ya generado el CSV exitosamente se procede a crear la base de datos Twitter2Mongo.
+
+![image](https://user-images.githubusercontent.com/66786471/133682984-009cdd05-82a7-40b1-b7b6-d8a1824be0bb.png)
+![image](https://user-images.githubusercontent.com/66786471/133683019-43b14ff2-d252-4a50-8898-3d4a1e2931c2.png)
+
+10. Ahora para la conexión respectiva con Elasticsearch nos ayudaremos de la herramienta Logstash que nos permite una conexión con la aplicación de Elastic en la nube. Para ello necesitaremos de un archivo de configuración como el siguiente en la carpeta bin de logstash.
+
+![image](https://user-images.githubusercontent.com/66786471/133683043-2f38647b-3be4-4769-a20b-c0b79c633cf8.png)
+
+11. Corremos el logstash y esperamos hasta que la base de datos sea subida correctamente.
+
+![image](https://user-images.githubusercontent.com/66786471/133683103-b20fd746-289e-4ca2-b5d1-d979773ed120.png)
+
+12. 
 
 ## Extracción de datos "Web scraping"
 Para la extraccion de datos con Web scraping tenemos que identificar el tema del cual vamos a extraer la información, en nuestro caso fue el porcentaje de población vacunada en diferentes países de Latinoamérica.
