@@ -20,6 +20,10 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
     
 ![elasticsininterfaz](https://user-images.githubusercontent.com/85883884/133671352-526be8c5-46e6-47e7-a72f-8b49d3037ef1.png)
 
+2. Para que Elasticsearch tenga una interfaz y podamos ver los datos qeu se almacenen necesitaremos de cerebro que se lo ejecuta de la siguiente manera desde la terminal
+
+![cerebroterminal](https://user-images.githubusercontent.com/85883884/133671898-0dbd2a19-4b09-4995-8486-536250a6d594.png)
+
 
 
 ## Extraccion de datos "Twitter"
