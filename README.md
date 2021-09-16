@@ -38,16 +38,6 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
 
-5. Luego de tener ya los datos almacenados en Elasticsearch procedemos a correr Kibana en la nube para poder utilizar estos datos en las visualizaciones empezando por la creación de los índices.
-![creacionindex](https://user-images.githubusercontent.com/85883884/133685550-6e94983b-46b1-49e5-8542-17f3500d8780.png)
-
-6. Una vez tengamos creados los índices procedemos a crear los dashboars para que así se muestren las visualizaciones de los diferentes índices que tenemos.
-![creaciondashboards](https://user-images.githubusercontent.com/85883884/133685583-705394d9-4b2b-4d36-b19a-7aa5eac40d59.png)
-
-7. Y al final tendremos las visualizaciones de cada uno de los índices.
-![visualizaciones1](https://user-images.githubusercontent.com/85883884/133685637-37588cbd-ae8c-4342-b6ff-de36ef6769f7.png)
-![visualizaciones2](https://user-images.githubusercontent.com/85883884/133685646-0a656a9e-d242-4120-b49c-f2368919be04.png)
-![visualizaciones3](https://user-images.githubusercontent.com/85883884/133685656-5355be0c-bed8-475f-91e9-ec47d660117a.png)
 
 ## Extraccion de datos "Twitter"
 
@@ -210,6 +200,19 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 ![image](https://user-images.githubusercontent.com/66144847/133680163-d53ab272-6edb-4765-957d-3491133938ea.png)
 
 # Parte 2 Explicacion de caso y graficos.
+## Facebbok
+Aqí se mostrará el proceso para visualizar los datos obtenidos de la extracción de facebook que en este caso son de videojuegos en línea espec+ificamente de FIFA desde páginas administradas por personas de diferentes paises de latinoamérica.
+
+1. Luego de tener ya los datos almacenados en Elasticsearch procedemos a correr Kibana en la nube para poder utilizar estos datos en las visualizaciones empezando por la creación de los índices.
+![creacionindex](https://user-images.githubusercontent.com/85883884/133685550-6e94983b-46b1-49e5-8542-17f3500d8780.png)
+
+2. Una vez tengamos creados los índices procedemos a crear los dashboars para que así se muestren las visualizaciones de los diferentes índices que tenemos.
+![creaciondashboards](https://user-images.githubusercontent.com/85883884/133685583-705394d9-4b2b-4d36-b19a-7aa5eac40d59.png)
+
+3. Y al final tendremos las visualizaciones de cada uno de los índices.
+![visualizaciones1](https://user-images.githubusercontent.com/85883884/133685637-37588cbd-ae8c-4342-b6ff-de36ef6769f7.png)
+![visualizaciones2](https://user-images.githubusercontent.com/85883884/133685646-0a656a9e-d242-4120-b49c-f2368919be04.png)
+![visualizaciones3](https://user-images.githubusercontent.com/85883884/133685656-5355be0c-bed8-475f-91e9-ec47d660117a.png)
 
 ## Web Scraping
 ### Caso 1 : Proceso de vacunación y administración en diferentes países latinoamericanos.
