@@ -13,6 +13,12 @@ Integrantes:
 ## Extracción de datos "Facebook"
 Para la extraccion de datos de Facebook primero debemos definir qué datos necesitamos que en este caso serán de juegos en líea qu en este caso serán de las páginas de FIFA de diferentes países como Ecuador, Argentina, Colombia, México y de la página oficial de EA sports.
 
+1. Script de jupyter que será utilizado para la extracción de datos
+![script1](https://user-images.githubusercontent.com/85883884/133669613-94c469c3-825a-4916-95ba-e43631d439bb.png)
+![script2](https://user-images.githubusercontent.com/85883884/133669630-4dee4f98-05c8-4861-ac86-ae9922deae79.png)
+![script3](https://user-images.githubusercontent.com/85883884/133669643-52bed0bd-13ef-47e5-8d62-3873df1b63a3.png)
+
+
 ## Extraccion de datos "Twitter"
 
 
