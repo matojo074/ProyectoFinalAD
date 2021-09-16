@@ -13,20 +13,26 @@ Integrantes:
 ## Extracción de datos "Facebook"
 Para la extraccion de datos de Facebook primero debemos definir qué datos necesitamos que en este caso serán de juegos en líea qu en este caso serán de las páginas de FIFA de diferentes países como Ecuador, Argentina, Colombia, México y de la página oficial de EA sports y luego se utilizó un script de extracción de datos para realizarlo.
 
-1. Antes de correr el script en python para extraer los datos se debe correr el elasticsearchcon el siguiente comando en el terminal
+1. Antes de correr el script en python para extraer los datos se debe correr el elasticsearchcon el siguiente comando en el terminal.
 ![comandoElastic](https://user-images.githubusercontent.com/85883884/133670480-d80e7742-de10-47db-9f66-80eecc6f7e8a.png)
 
-    1.1 Como Elastcsearch no tiene interfaz gráfica se presentará de la siguiente manera
+    1.1 Como Elastcsearch no tiene interfaz gráfica se presentará de la siguiente manera.
     
 ![elasticsininterfaz](https://user-images.githubusercontent.com/85883884/133671352-526be8c5-46e6-47e7-a72f-8b49d3037ef1.png)
 
-2. Para que Elasticsearch tenga una interfaz y podamos ver los datos qeu se almacenen necesitaremos de cerebro que se lo ejecuta de la siguiente manera desde la terminal
+2. Para que Elasticsearch tenga una interfaz y podamos ver los datos qeu se almacenen necesitaremos de cerebro que se lo ejecuta de la siguiente manera desde la terminal.
 
 ![cerebroterminal](https://user-images.githubusercontent.com/85883884/133671898-0dbd2a19-4b09-4995-8486-536250a6d594.png)
 
-3. Luego de ejecutar cerebro, ingresamos en la interfaz de cerebro con las credenciales para trabajar en la nube y se ve de la siguiente manera
+3. Luego de ejecutar cerebro, ingresamos en la interfaz de cerebro con las credenciales para trabajar en la nube y se ve de la siguiente manera.
 
 ![elasticinterfaz](https://user-images.githubusercontent.com/85883884/133672326-8d86d24f-736f-43d5-9f31-87c7a94f0a93.png)
+
+4. Una vez estando en la interfaz de Elasticsearch con cerebro, con la utilización de los archivos de configuración corremos Logstash por la terminal para de esta manera pasar los datos que se vayan a gregando a las diferentes bases de datos creadas en CouchDB se almacenen en Elastic.
+
+
+![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
+
 
 
 
