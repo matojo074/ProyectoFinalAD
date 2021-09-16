@@ -36,7 +36,17 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 ## Extraccion de datos "Twitter"
 
 La conexión a Twitter se puede realizar de varias maneras, en este caso decidemos empezar por la aplicación de RapidMiner que nos ofrece una conexión tanto con Twitter Developer como con MongoDB
-1.  Entramos a la aplicacion de RappidMiner
+1.  Entramos a la aplicacion de RappidMiner y creamos la conexión a Twitter.
+
+![image](https://user-images.githubusercontent.com/66786471/133682243-f1fb9e31-0045-479e-8b1f-31b2abbdc7e8.png)
+
+![image](https://user-images.githubusercontent.com/66786471/133682261-ea1cece5-764b-45d8-b51d-5f4a8afe6335.png)
+
+2.  Ya una vez generada seleccionamos los operadores Retrieve y Search Twitter para poder establecer la conexión creada junto con lo que deseamos buscar en Twitter que en este caso es el pulso político de 20 ciudades del Ecuador. Para poder cosechar los datos ingresaremos en los campos la palabra a buscar y habilitaremos la geolocalización donde nos pide coordenadas de latitud y longitud aparte de un radio de extensión de la ciudad.
+
+![image](https://user-images.githubusercontent.com/66786471/133682393-a46539c0-3a6a-40a0-b0af-d5e4d3018934.png)
+![image](https://user-images.githubusercontent.com/66786471/133682401-90e7e5f3-6ead-4517-a9c3-6eece9b4bdee.png)
+
 
 ## Extracción de datos "Web scraping"
 Para la extraccion de datos con Web scraping tenemos que identificar el tema del cual vamos a extraer la información, en nuestro caso fue el porcentaje de población vacunada en diferentes países de Latinoamérica.
