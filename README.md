@@ -49,13 +49,12 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 ![visualizaciones2](https://user-images.githubusercontent.com/85883884/133685646-0a656a9e-d242-4120-b49c-f2368919be04.png)
 ![visualizaciones3](https://user-images.githubusercontent.com/85883884/133685656-5355be0c-bed8-475f-91e9-ec47d660117a.png)
 
-
-
-
-
-
-
 ## Extraccion de datos "Twitter"
+
+1.  Para poder recolectar los datos de Twitter usaremos la herramienta de RapidMiner con la cual podremos minar datos. Primero generamos una conexión con nuestra cuenta de Twitter Developer  desde RapidMiner.
+![image](https://user-images.githubusercontent.com/66786471/133686752-96b56245-5ca4-49b3-8611-259b4231ad9a.png)
+![image](https://user-images.githubusercontent.com/66786471/133686763-4c1cde45-969d-4023-b204-2148455e9101.png)
+
 
 
 ## Extracción de datos "Web scraping"
