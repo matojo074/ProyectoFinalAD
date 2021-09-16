@@ -16,6 +16,10 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 1. Antes de correr el script en python para extraer los datos se debe correr el elasticsearchcon el siguiente comando en el terminal
 ![comandoElastic](https://user-images.githubusercontent.com/85883884/133670480-d80e7742-de10-47db-9f66-80eecc6f7e8a.png)
 
+    1.1 Como Elastcsearch no tiene interfaz gráfica se presentará de la siguiente manera
+    
+![elasticsininterfaz](https://user-images.githubusercontent.com/85883884/133671352-526be8c5-46e6-47e7-a72f-8b49d3037ef1.png)
+
 
 
 ## Extraccion de datos "Twitter"
