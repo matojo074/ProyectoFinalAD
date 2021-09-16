@@ -14,11 +14,16 @@ Integrantes:
 Para la extraccion de datos de Facebook primero debemos definir qué datos necesitamos que en este caso serán de juegos en líea qu en este caso serán de las páginas de FIFA de diferentes países como Ecuador, Argentina, Colombia, México y de la página oficial de EA sports y luego se utilizó un script de extracción de datos para realizarlo.
 
 1. Antes de correr el script en python para extraer los datos se debe correr el elasticsearchcon el siguiente comando en el terminal.
+
+
 ![comandoElastic](https://user-images.githubusercontent.com/85883884/133670480-d80e7742-de10-47db-9f66-80eecc6f7e8a.png)
 
     1.1 Como Elastcsearch no tiene interfaz gráfica se presentará de la siguiente manera.
     
+    
 ![elasticsininterfaz](https://user-images.githubusercontent.com/85883884/133671352-526be8c5-46e6-47e7-a72f-8b49d3037ef1.png)
+
+
 
 2. Para que Elasticsearch tenga una interfaz y podamos ver los datos qeu se almacenen necesitaremos de cerebro que se lo ejecuta de la siguiente manera desde la terminal.
 
@@ -180,10 +185,12 @@ Tabla y grafica de pais Perú: Comparado a Argentina, Perú tiene un proceso de 
 
 En este caso, de acuerdo a nuestro diseño de arquitectura se utilizará directamente elasticsearch como concentrador de los datos de los archivos csv de INEC.Gracias a que INEC da la posibilidad de bajar archivos csv directamente de su sitio web. 
 
+
 ![imagen](https://user-images.githubusercontent.com/58041267/133682139-5cb091e4-19f4-4ab2-9c67-45fbfde68605.png)
 
 
 El archivo csv obtenido tiene por nombre, egresos hospitalarios del año 2020 y es justamente con este archivo el que guardaremos como evento en el contenedor elasticsearch en la nube.
+
 
 ![imagen](https://user-images.githubusercontent.com/58041267/133682194-e30f3bee-132a-479b-8789-bead6af6aad8.png)
 
@@ -191,17 +198,27 @@ El archivo csv obtenido tiene por nombre, egresos hospitalarios del año 2020 y 
 Como sabemos Logstash es parte del preprocesameinto antes de guardar la información en Elasticsearch, por lo tanto, el proceso básicamente consistió en:
 
 1. Se procede a poner en marcha cerebro con el fin de poder conectarnos con elastic cloud, el cual hemos creado para uso del equipo del proyecto.
+
+
 ![imagen](https://user-images.githubusercontent.com/58041267/133683051-c2013c0e-a6a3-4996-b329-2f1c8e0cf9e5.png)
 
+
+
 2. Poner en marcha logstash.
+
+
 ![imagen](https://user-images.githubusercontent.com/58041267/133683102-ebe09887-c5bd-4af8-b095-9ec7fbf0018e.png)
 
 3. Usando Kibana, importar el archivo csv mediante File Data Visualizer que se encuentra en la sección Machine Learning > Visualización de datos
+
+
 ![imagen](https://user-images.githubusercontent.com/58041267/133683186-88bba947-481d-40f2-9e33-0c24134c82e7.png)
 ![imagen](https://user-images.githubusercontent.com/58041267/133683343-1e252b8b-2a7f-4de1-8054-4849431f49fe.png)
 ![imagen](https://user-images.githubusercontent.com/58041267/133683379-ee940b84-f52c-4750-a905-c6a90ad199a6.png)
 
 4. Utilizando Discover y Visualizer, realizar la visualización de datos del archivo mediante gráficas.
+
+
 ![imagen](https://user-images.githubusercontent.com/58041267/133683498-96f711e4-6c3b-4514-904a-97d0d7612426.png)
 ![imagen](https://user-images.githubusercontent.com/58041267/133683548-6071f3ca-457b-41e3-93da-84d4e4acab6a.png)
 
