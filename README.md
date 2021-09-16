@@ -176,7 +176,7 @@ Tabla y grafica de pais Perú: Comparado a Argentina, Perú tiene un proceso de 
 
 ![image](https://user-images.githubusercontent.com/65979995/133668837-fc688475-b752-4c4b-9f7b-3223fce46a7e.png)
 
-#INEC
+# INEC
 
 En este caso, de acuerdo a nuestro diseño de arquitectura se utilizará directamente elasticsearch como concentrador de los datos de los archivos csv de INEC.Gracias a que INEC da la posibilidad de bajar archivos csv directamente de su sitio web. 
 
