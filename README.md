@@ -52,8 +52,18 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 ## Extraccion de datos "Twitter"
 
 1.  Para poder recolectar los datos de Twitter usaremos la herramienta de RapidMiner con la cual podremos minar datos. Primero generamos una conexión con nuestra cuenta de Twitter Developer  desde RapidMiner.
+
 ![image](https://user-images.githubusercontent.com/66786471/133686752-96b56245-5ca4-49b3-8611-259b4231ad9a.png)
 ![image](https://user-images.githubusercontent.com/66786471/133686763-4c1cde45-969d-4023-b204-2148455e9101.png)
+
+2.  Ya una vez generada la conexión seleccionamos los operadores Retrieve y Search Twitter para poder establecer la conexión creada junto con lo que deseamos buscar en twitter que en este caso es el pulso político de 20 ciudades del Ecuador. Para poder cosechar los datos ingresaremos en los campos la palabra a buscar y habilitaremos la geolocalización donde nos pide coordenadas de latitud y longitud aparte de un radio de extensión de la ciudad.
+
+![image](https://user-images.githubusercontent.com/66786471/133686919-aced73da-3e49-4934-87ad-0625f6075327.png)
+![image](https://user-images.githubusercontent.com/66786471/133686932-c2519ddc-d240-4835-8156-ac00c0e37a91.png)
+
+3. Para poder cosechar de mejor manera los datos crearemos un proceso con 4 buscadores de Twitter donde cada uno llevara una palabra clave diferente.
+
+![image](https://user-images.githubusercontent.com/66786471/133686969-db8bcb0a-8810-4694-a97e-4bfd0cceaa84.png)
 
 
 
@@ -157,25 +167,6 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 ![image](https://user-images.githubusercontent.com/66144847/133680149-e2a3e372-946f-4c06-a8d6-0c5616e9a08a.png)
 
 ![image](https://user-images.githubusercontent.com/66144847/133680163-d53ab272-6edb-4765-957d-3491133938ea.png)
-
-#
-# Recopilacion de datos Tiktok
-Tiktok es una plataforma en la que los usuarios pueden subir videos publicos de hasta un minuto, en los videos se puede tener audio agregado, menciones, hashtags y trends. Estas caracteristicas de los videos pueden ser utilizados para su recopilación mediante el uso de tik-tok scraper, pasandolos como parametro definido para obtener la información con lo establecido. Y esto puede ser guardado en un archivo CSV.
-
-1. Para la recopilación se utiliza el comando tiktok-scraper con el parametro de hashtag asignando el de noticias para que recopile información de 20 videos con ese hashtag.
-![tiktok-scraper](https://user-images.githubusercontent.com/58042139/133685171-19e9c165-bf6d-47a8-bdc7-fb06597ee515.jpg)
-
-2. Una vez se obtenga la información de los videos recopilada se procede a realizar la limpieza con el operador de ReplaceMissingValues de RapidMiner el cual ayuda a remplazar los datos vacios.
-![replace missing values](https://user-images.githubusercontent.com/58042139/133685691-6e11739b-d4f9-495d-a739-3798cf3b6980.jpg)
-
-3. Ya con los datos limpios, se procede a importarlos a una base de datos local en MySQL.
-![subidamysql](https://user-images.githubusercontent.com/58042139/133685852-8c465d5a-9710-4e76-9544-7453fdb7d737.jpg)
-![noticias](https://user-images.githubusercontent.com/58042139/133685886-ce727941-c153-4bfb-81dd-0311abcd27f0.jpg)
-
-4. Con el archivo de configuración de Logstash se sube la información creando un nodo en la nube de Elastic
-![logstash2](https://user-images.githubusercontent.com/58042139/133686472-21bac47f-0843-498c-af40-f801e389d92c.jpg)
-
-![elastic](https://user-images.githubusercontent.com/58042139/133686266-e3c603fa-ac4f-45b2-b98f-40edc65e37eb.jpg)
 
 # Parte 2 Explicacion de caso y graficos.
 
