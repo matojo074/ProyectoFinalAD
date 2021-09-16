@@ -40,6 +40,16 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![datosenelastic](https://user-images.githubusercontent.com/85883884/133674897-8137d767-f1ad-4e77-acde-b034f6370964.png)
 
+5. Como siguiente paso abrimos Kabana en la nube e ingresamos con las mismas credenciales de Elastcsearch para conectarlas y así con los datos almacenados se puedan generar las visualizaciones empezando por el primer paso que es crear los indices
+
+![creacionindex](https://user-images.githubusercontent.com/85883884/133676512-f6a89960-8655-455c-8c88-78ee5dd99091.png)
+
+6. Luego de crear cada uno de los indices que tenemos en Elasticsearch en Kabana procedemos a la creación de dashboards.
+
+![creaciondashboards](https://user-images.githubusercontent.com/85883884/133676926-ad11c35d-3bf3-4f91-968c-cf866b6b0fd8.png)
+
+7. Visualizaciones de cada uno de los índices.
+
 
 
 ## Extraccion de datos "Twitter"
