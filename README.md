@@ -365,8 +365,6 @@ Hecho esto, se puede volver a la página de inicio y seleccionar dashboard. Se p
 Dependerá de los datos el tipo de gráfico que se pueda hacer, se deberán conocer las columnas y experimentar para averiguar que tipo de gráfico permite visualizar mejor la información.
 Para este caso se construyeron dos gráficos:
 
-![image](https://user-images.githubusercontent.com/66144847/133683691-c1c683ad-7a34-4ec4-86da-8a2b630f9fec.png)
-
 Este gráfico muestra el juego más popular a nivel mundial, para hallar esto, se agregaron las apariciones de un juego como más popular en varios países y se creó un total que permite concluir que el juego más popular del mundo se ganó ese título ya que una mayoría de países lo consideraron como el más popular dentro de sus países. Por otro lado, el juego menos popular solo fue seleccionado en un solo país.
 
 ![image](https://user-images.githubusercontent.com/66144847/133684024-a697e031-ab5d-48f6-bb77-0c77530a4a61.png)
