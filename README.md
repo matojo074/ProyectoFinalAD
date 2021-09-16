@@ -33,25 +33,8 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
 
-5. Luego de correr Logstash se corre el script realizado en python para que los datos extraidos de facebook vayan a CouchDB y también se almacenen en Elastic 
 
 
-![couchBases](https://user-images.githubusercontent.com/85883884/133674677-6f61f3ea-d1dc-4a00-8af9-c7b435bfb27a.png)
-
-![datosenelastic](https://user-images.githubusercontent.com/85883884/133674897-8137d767-f1ad-4e77-acde-b034f6370964.png)
-
-5. Como siguiente paso abrimos Kabana en la nube e ingresamos con las mismas credenciales de Elastcsearch para conectarlas y así con los datos almacenados se puedan generar las visualizaciones empezando por el primer paso que es crear los indices
-
-![creacionindex](https://user-images.githubusercontent.com/85883884/133676512-f6a89960-8655-455c-8c88-78ee5dd99091.png)
-
-6. Luego de crear cada uno de los indices que tenemos en Elasticsearch en Kabana procedemos a la creación de dashboards.
-
-![creaciondashboards](https://user-images.githubusercontent.com/85883884/133676926-ad11c35d-3bf3-4f91-968c-cf866b6b0fd8.png)
-
-7. Visualizaciones de cada uno de los índices.
-![visualizaciones1](https://user-images.githubusercontent.com/85883884/133677865-deb79119-0a6e-4fe1-bf64-b4a91491e23b.png)
-![visualizaciones2](https://user-images.githubusercontent.com/85883884/133677893-1e4e952f-5af9-426f-825e-5d59640a251e.png)
-![visualizaciones3](https://user-images.githubusercontent.com/85883884/133677908-8b38d9d3-fb64-4f34-ad15-9be285e68230.png)
 
 
 
@@ -125,7 +108,39 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 
 ![image](https://user-images.githubusercontent.com/66144847/133665096-b4b35fac-2f6f-47c7-b401-f8eaaa331a94.png)
 
+3. Se procede a crear una base de datos en postgreSQL, esto se puede hacer con la línea de comandos o con la interfaz PGAdmin, en este caso se usará esta segunda opción. 
 
+![image](https://user-images.githubusercontent.com/66144847/133678548-f74eb975-dfcb-4784-8f6f-34a317cc027c.png)
+
+4. En la base creada, se crea una tabla que tenga el mismo número de columnas y los mismos tipos de datos que el archivo CSV, si en este paso no se han eliminado los encabezados en el archivo CSV, se poducirá un conflicto con el tipo de datos numeric intentando guardar la palabra del encabezado. También convendrá nombrar las columnas de la tabla como estaban nombradas originalmente en el archivo por motivos de orden.
+
+![image](https://user-images.githubusercontent.com/66144847/133678829-cbc9f3d5-217d-43b1-b187-9d371f562d18.png)
+
+5. Teniendo la tabla creada, se puede importar el archivo CSV con una de las opciones del menu que aparece al hacer click derecho en el nombre de la tabla, para importar se debe especificar la ruta completa del archivo, la codificación y el caracter limitador
+
+![image](https://user-images.githubusercontent.com/66144847/133679045-3669568f-4b1c-4639-aad3-a7ebb8910321.png)
+
+6. Si no hay ningún error, se mostrará un mensaje de éxito y se podrán ver los datos en la tabla
+
+![image](https://user-images.githubusercontent.com/66144847/133679120-6475407c-5638-495b-a11d-2301d290c0f8.png)
+
+7. El siguiente paso es subir esta tabla a la nube de ElasticSearch, para esto se utilizará un archivo de configuración en el cual se utiliza el driver JDBC para conectarse con la base de datos utilizando el plugin respectivo, obtener la información y poblar un índice en la nube con dicha información. El plugin de conexión con la base se deberá descargar y, preferiblemente, ubicar en la carpeta bin de logstash junto con el archivo .conf
+
+![image](https://user-images.githubusercontent.com/66144847/133679547-ab36f2cc-cd22-42dc-b1bd-33ededc42834.png)
+
+8. Luego, asegurándose que ElasticSearch y su cliente Cerebro estén en ejecución, se ejecuta logstash con el archivo de configuración
+
+![image](https://user-images.githubusercontent.com/66144847/133679794-675b006a-72ed-4145-a992-0885c115f43f.png)
+
+9. Si no hay ningún error, se mostrará en la terminal la información extraída y terminará el proceso
+
+![image](https://user-images.githubusercontent.com/66144847/133679873-f14a6108-0783-4942-b60c-0f62c6c84022.png)
+
+10. Ahora, si se ingresa a la nube de ElasticSearch, se podrá ver el índice creado; este tambien se podrá consultar con la función search para verificar que la información está ahí.
+
+![image](https://user-images.githubusercontent.com/66144847/133680149-e2a3e372-946f-4c06-a8d6-0c5616e9a08a.png)
+
+![image](https://user-images.githubusercontent.com/66144847/133680163-d53ab272-6edb-4765-957d-3491133938ea.png)
 
 # Parte 2 Explicacion de caso y graficos.
 
