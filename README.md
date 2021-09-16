@@ -77,3 +77,6 @@ jdbc.conf
 
 
 
+# Parte 2: Analisis de casos
+
+##web scraping
