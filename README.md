@@ -91,7 +91,7 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 
 # INEC 
 En este caso, de acuerdo a nuestro diseño de arquitectura se utilizará directamente elasticsearch como concentrador de los datos de los archivos csv de INEC.Gracias a que INEC da la posibilidad de bajar archivos csv directamente de su sitio web.
-![imagen](https://user-images.githubusercontent.com/58041267/133667502-ceb8d174-e6e9-4fbe-a3b9-4b1e795e1d27.png)
+![imagen](https://user-images.githubusercontent.com/58041267/133668850-73540f3b-97da-42d4-971d-c6da920c46e7.png)
 
 
 El archivo csv obtenido tiene por nombre, egresos hospitalarios del año 2020  y es justamente con este archivo el que guardaremos como evento en el contenedor elasticsearch en la nube.
