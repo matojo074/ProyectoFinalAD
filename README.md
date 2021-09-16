@@ -35,6 +35,63 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ## Extraccion de datos "Twitter"
 
+La conexión a Twitter se puede realizar de varias maneras, en este caso decidemos empezar por la aplicación de RapidMiner que nos ofrece una conexión tanto con Twitter Developer como con MongoDB
+1.  Entramos a la aplicacion de RappidMiner y creamos la conexión a Twitter.
+
+![image](https://user-images.githubusercontent.com/66786471/133682243-f1fb9e31-0045-479e-8b1f-31b2abbdc7e8.png)
+
+![image](https://user-images.githubusercontent.com/66786471/133682261-ea1cece5-764b-45d8-b51d-5f4a8afe6335.png)
+
+2.  Ya una vez generada seleccionamos los operadores Retrieve y Search Twitter para poder establecer la conexión creada junto con lo que deseamos buscar en Twitter que en este caso es el pulso político de 20 ciudades del Ecuador. Para poder cosechar los datos ingresaremos en los campos la palabra a buscar y habilitaremos la geolocalización donde nos pide coordenadas de latitud y longitud aparte de un radio de extensión de la ciudad.
+
+![image](https://user-images.githubusercontent.com/66786471/133682393-a46539c0-3a6a-40a0-b0af-d5e4d3018934.png)
+![image](https://user-images.githubusercontent.com/66786471/133682401-90e7e5f3-6ead-4517-a9c3-6eece9b4bdee.png)
+
+3.  Para poder cosechar de mejor manera los datos crearemos un proceso con 4 buscadores de Twitter donde cada uno llevara una palabra clave diferente.
+
+![image](https://user-images.githubusercontent.com/66786471/133682577-1f29424e-b65e-4450-8631-7c578109cc11.png)
+
+4.  Ya una vez listo, seleccionaremos los atributos que deseamos recolectar gracias a un operador como se muestra en la siguiente imagen. 
+
+![image](https://user-images.githubusercontent.com/66786471/133682635-ba637049-5f7c-434f-8e2a-9d0f1ab73996.png)
+
+5.  Junto a estos seleccionadores añadiremos un transformador de DATA a JSON con el fin de que los archivos guardados en MongoDB sean JSON para mayor facilidad.
+
+![image](https://user-images.githubusercontent.com/66786471/133682760-2fa98da0-7c21-4a87-9720-798f08b4bade.png)
+
+6.  Ya una vez transformada la información pasamos a crear otra conexión pero esta vez para MongoDB y de igual manera usar el operador Retrive junto Multiply que nos ayudara a crear copias de objetos de RapidMiner y también un operador de escritura en mongo donde ingresaremos cada unos de los JSON convertidos y estableceremos la conexión con la base de datos. 
+
+![image](https://user-images.githubusercontent.com/66786471/133682791-5a94c9a2-69c0-4b06-a2d2-178ae5e8249f.png)
+
+7.  Una vez realizado este procedimiento con cada una de las coordenadas respectivas a cada ciudad podemos evidenciar la información recolectada en nuestro MongoDB donde tenemos la base de datos Titter_Mongo y la colección Pulso_Politico20 con 402 documentos registrados.
+
+![image](https://user-images.githubusercontent.com/66786471/133682832-b8aeb8c3-453e-464e-8cac-f7afe5aadd14.png)
+
+8.  Para poder conectarnos a elasticsearch se intentó con varios métodos desde códigos, hasta transferir la conexión a CouchDB sin embargo el único camino que dio resultado fue importar los datos de Mongo en un archivo CSV  y posterior a ello subirlos a phpMyAdmin.
+
+![image](https://user-images.githubusercontent.com/66786471/133682899-6ee82536-38f6-4b3d-9bf8-f35ef275d943.png)
+
+9.  Una vez ya generado el CSV exitosamente se procede a crear la base de datos Twitter2Mongo.
+
+![image](https://user-images.githubusercontent.com/66786471/133682984-009cdd05-82a7-40b1-b7b6-d8a1824be0bb.png)
+![image](https://user-images.githubusercontent.com/66786471/133683019-43b14ff2-d252-4a50-8898-3d4a1e2931c2.png)
+
+10. Ahora para la conexión respectiva con Elasticsearch nos ayudaremos de la herramienta Logstash que nos permite una conexión con la aplicación de Elastic en la nube. Para ello necesitaremos de un archivo de configuración como el siguiente en la carpeta bin de logstash.
+
+![image](https://user-images.githubusercontent.com/66786471/133683043-2f38647b-3be4-4769-a20b-c0b79c633cf8.png)
+
+11. Corremos el logstash y esperamos hasta que la base de datos sea subida correctamente.
+
+![image](https://user-images.githubusercontent.com/66786471/133683103-b20fd746-289e-4ca2-b5d1-d979773ed120.png)
+
+12. Ahora procedemos a la creación de las graficas para su analisis. Empezamos creando un un indice desde el manejo de indices para poder establecer el timetable donde nos ubicara en el tiempo los datos.
+
+![image](https://user-images.githubusercontent.com/66786471/133684176-d3195351-aeb9-436a-b2e6-9e2608e8bb0b.png)
+
+13. procedemos a crear un pizarra donde podremos manejar varios graficos y posterior a ello analizarlso.
+
+![image](https://user-images.githubusercontent.com/66786471/133684560-a82e2eda-1dc6-41a0-829c-e55fd2dc1f6f.png)
+
 
 ## Extracción de datos "Web scraping"
 Para la extraccion de datos con Web scraping tenemos que identificar el tema del cual vamos a extraer la información, en nuestro caso fue el porcentaje de población vacunada en diferentes países de Latinoamérica.
@@ -137,10 +194,10 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 
 ![image](https://user-images.githubusercontent.com/66144847/133680163-d53ab272-6edb-4765-957d-3491133938ea.png)
 
-# Parte 2 Explicacion de Caso y Visualizaciones.
+# Parte 2 Explicacion de caso y graficos.
 
 ## Web Scraping
-
+### Caso 1 : Proceso de vacunación y administración en diferentes países latinoamericanos.
 Tabla y grafica de pais Argentina: El crecimiento constante del proceso de vacunacion en Argentina, se puede considerar como aceptable, debido a que hay que tener en cuenta al nivel poblacional del mismo.
 
 ![image](https://user-images.githubusercontent.com/65979995/133667033-3bead1a0-0985-415e-9d51-2013780d7541.png)
@@ -165,46 +222,11 @@ Tabla y grafica de pais Paraguay: Posiblemente sea uno de los paises con el peor
 
 ![image](https://user-images.githubusercontent.com/65979995/133668503-54be3baf-1158-4742-8cb2-c7e031c8dc14.png)
 
-Tabla y grafica de pais Perú: Comparado a Argentina, Perú tiene un proceso de vacunacion lento y deficiente, que no permitira que tengan un proceso de vacunacion de forma correcta y les tome mas tiempo inmunizarse.
+Tabla y grafica de pais Perú: Comparado a Argentina, Perú tiene un proceso de vacunacion lento y deficiente, que no permitira que tengan un proceso de vacunacion de forma correcta y les tome mas tiempo inmunisarce.
 
 ![image](https://user-images.githubusercontent.com/65979995/133668804-14a112af-a922-4017-b80a-8d5fc8b25caf.png)
 
 ![image](https://user-images.githubusercontent.com/65979995/133668837-fc688475-b752-4c4b-9f7b-3223fce46a7e.png)
-
-## Videojuegos más populares según países
-Basándose en la información obtenida en el dataset sacado de Kaggle, se puede deducir a simple vista cual es el juego más popular en cada país (la tabla literalmente lo dice), pero, al realizar visualizaciones se pueden comparar los campos dados para obtener otros resultados interesantes.
-Para realizar visualizaciones se utiliza Kibana, una herramienta que se conecta directamente a ElasticSearch y permite construir todo tipo de gráficos con los índices que están almacenados. Pero antes de que los datos puedan representarse gráficamente, se debe crear un patrón de índice, para esto se despliega el menu en la página principal de Kibana y se selecciona Stack managemente
-
-![image](https://user-images.githubusercontent.com/66144847/133682728-73f7c223-c06b-4d31-ad70-533e78ae46c4.png)
-
-Luego se debe crear un patrón de índice seleccionando el índice de la lista (la misma lista que está en ElasticSearch)
-
-![image](https://user-images.githubusercontent.com/66144847/133682961-601a03f4-4887-4ac9-aff5-d933fbfc9f1f.png)
-
-Se añade el campo timestamp y el índice quedará guardado. Timestamp no es de utilidad en este caso pués los datos son estáticos, pero se lo agrega de todas formas para crear el índice.
-
-![image](https://user-images.githubusercontent.com/66144847/133683136-4d73d2fc-d743-46f8-a7f3-ae30ee9308ec.png)
-
-Hecho esto, se puede volver a la página de inicio y seleccionar dashboard. Se puede crear un dashboard para observar toda las visualizaciones de un índice, si no se ha creado uno, se lo puede hacer con el botón create dashboard. Dentro del dashboard habrá un botón para crear visualizaciones, al seleccionarlo, se abrirá un editor donde se deberá seleccionar el tipo de gráfico, el patrón de índice a utilizar y las columnas del índice para construir el gráfico.
-
-![image](https://user-images.githubusercontent.com/66144847/133683486-9c12bc9d-7948-4ea4-8b3e-5c887887c037.png)
-
-Dependerá de los datos el tipo de gráfico que se pueda hacer, se deberán conocer las columnas y experimentar para averiguar que tipo de gráfico permite visualizar mejor la información.
-Para este caso se construyeron dos gráficos:
-
-![image](https://user-images.githubusercontent.com/66144847/133683691-c1c683ad-7a34-4ec4-86da-8a2b630f9fec.png)
-
-Este gráfico muestra el juego más popular a nivel mundial, para hallar esto, se agregaron las apariciones de un juego como más popular en varios países y se creó un total que permite concluir que el juego más popular del mundo se ganó ese título ya que una mayoría de países lo consideraron como el más popular dentro de sus países. Por otro lado, el juego menos popular solo fue seleccionado en un solo país.
-
-![image](https://user-images.githubusercontent.com/66144847/133684024-a697e031-ab5d-48f6-bb77-0c77530a4a61.png)
-
-El segundo gráfico permite ver en que coordenadas un juego es popular, el dataset especificaba las coordenadas de los países que eligieron al juego más popular, por ende, si se saca el promedio de todas las coordenadas que eligieron un mismo juego se puede observar el promedio de las coordenadas donde cada juego es jugado, esto se ilustó con un gráfico de barras apiladas
-
-![image](https://user-images.githubusercontent.com/66144847/133684469-bf0cbf2b-31da-458d-b142-c4abf5759ae5.png)
-
-Una vez creados y guardados estos gráficos, se podrá observar como el dashboard los muestra
-
-![image](https://user-images.githubusercontent.com/66144847/133684534-5c8dd0db-5b9f-4ed8-9ab5-fb251c0738eb.png)
 
 
 
