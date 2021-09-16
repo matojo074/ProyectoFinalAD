@@ -222,6 +222,9 @@ Aqí se mostrará el proceso para visualizar los datos obtenidos de la extracci�
 En la primera imagen podemso encontrar lo que serian los teztos de los tweets y donde podemos encontrar las pabras seleccionadas en la consulta como es "listas", "diputas", entre otros dandonos asi como resultado una cosecha de datos exitosa. 
 ![image](https://user-images.githubusercontent.com/66786471/133692084-8b20d841-8d2e-4fca-8328-be6f5c44fcb7.png)
 
+En la siguiente tabla encontramos el ocntenido de los tweets mas retweeteados por usuarios y vemos que son referentes a las listas de los candidatos presidenciales.
+![image](https://user-images.githubusercontent.com/66786471/133692370-ef28983b-afc7-41a5-83f1-0a5079dff2e6.png)
+
 
 ## Web Scraping
 ### Caso 1 : Proceso de vacunación y administración en diferentes países latinoamericanos.
