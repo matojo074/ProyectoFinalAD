@@ -14,16 +14,11 @@ Integrantes:
 Para la extraccion de datos de Facebook primero debemos definir qué datos necesitamos que en este caso serán de juegos en líea qu en este caso serán de las páginas de FIFA de diferentes países como Ecuador, Argentina, Colombia, México y de la página oficial de EA sports y luego se utilizó un script de extracción de datos para realizarlo.
 
 1. Antes de correr el script en python para extraer los datos se debe correr el elasticsearchcon el siguiente comando en el terminal.
-
-
 ![comandoElastic](https://user-images.githubusercontent.com/85883884/133670480-d80e7742-de10-47db-9f66-80eecc6f7e8a.png)
 
     1.1 Como Elastcsearch no tiene interfaz gráfica se presentará de la siguiente manera.
     
-    
 ![elasticsininterfaz](https://user-images.githubusercontent.com/85883884/133671352-526be8c5-46e6-47e7-a72f-8b49d3037ef1.png)
-
-
 
 2. Para que Elasticsearch tenga una interfaz y podamos ver los datos qeu se almacenen necesitaremos de cerebro que se lo ejecuta de la siguiente manera desde la terminal.
 
@@ -37,11 +32,6 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 
 ![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
-
-
-
-
-
 
 ## Extraccion de datos "Twitter"
 
@@ -147,10 +137,10 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 
 ![image](https://user-images.githubusercontent.com/66144847/133680163-d53ab272-6edb-4765-957d-3491133938ea.png)
 
-# Parte 2 Explicacion de caso y graficos.
+# Parte 2 Explicacion de Caso y Visualizaciones.
 
 ## Web Scraping
-### Caso 1 : Proceso de vacunación y administración en diferentes países latinoamericanos.
+
 Tabla y grafica de pais Argentina: El crecimiento constante del proceso de vacunacion en Argentina, se puede considerar como aceptable, debido a que hay que tener en cuenta al nivel poblacional del mismo.
 
 ![image](https://user-images.githubusercontent.com/65979995/133667033-3bead1a0-0985-415e-9d51-2013780d7541.png)
@@ -175,52 +165,46 @@ Tabla y grafica de pais Paraguay: Posiblemente sea uno de los paises con el peor
 
 ![image](https://user-images.githubusercontent.com/65979995/133668503-54be3baf-1158-4742-8cb2-c7e031c8dc14.png)
 
-Tabla y grafica de pais Perú: Comparado a Argentina, Perú tiene un proceso de vacunacion lento y deficiente, que no permitira que tengan un proceso de vacunacion de forma correcta y les tome mas tiempo inmunisarce.
+Tabla y grafica de pais Perú: Comparado a Argentina, Perú tiene un proceso de vacunacion lento y deficiente, que no permitira que tengan un proceso de vacunacion de forma correcta y les tome mas tiempo inmunizarse.
 
 ![image](https://user-images.githubusercontent.com/65979995/133668804-14a112af-a922-4017-b80a-8d5fc8b25caf.png)
 
 ![image](https://user-images.githubusercontent.com/65979995/133668837-fc688475-b752-4c4b-9f7b-3223fce46a7e.png)
 
-# INEC
+## Videojuegos más populares según países
+Basándose en la información obtenida en el dataset sacado de Kaggle, se puede deducir a simple vista cual es el juego más popular en cada país (la tabla literalmente lo dice), pero, al realizar visualizaciones se pueden comparar los campos dados para obtener otros resultados interesantes.
+Para realizar visualizaciones se utiliza Kibana, una herramienta que se conecta directamente a ElasticSearch y permite construir todo tipo de gráficos con los índices que están almacenados. Pero antes de que los datos puedan representarse gráficamente, se debe crear un patrón de índice, para esto se despliega el menu en la página principal de Kibana y se selecciona Stack managemente
 
-En este caso, de acuerdo a nuestro diseño de arquitectura se utilizará directamente elasticsearch como concentrador de los datos de los archivos csv de INEC.Gracias a que INEC da la posibilidad de bajar archivos csv directamente de su sitio web. 
+![image](https://user-images.githubusercontent.com/66144847/133682728-73f7c223-c06b-4d31-ad70-533e78ae46c4.png)
 
+Luego se debe crear un patrón de índice seleccionando el índice de la lista (la misma lista que está en ElasticSearch)
 
-![imagen](https://user-images.githubusercontent.com/58041267/133682139-5cb091e4-19f4-4ab2-9c67-45fbfde68605.png)
+![image](https://user-images.githubusercontent.com/66144847/133682961-601a03f4-4887-4ac9-aff5-d933fbfc9f1f.png)
 
+Se añade el campo timestamp y el índice quedará guardado. Timestamp no es de utilidad en este caso pués los datos son estáticos, pero se lo agrega de todas formas para crear el índice.
 
-El archivo csv obtenido tiene por nombre, egresos hospitalarios del año 2020 y es justamente con este archivo el que guardaremos como evento en el contenedor elasticsearch en la nube.
+![image](https://user-images.githubusercontent.com/66144847/133683136-4d73d2fc-d743-46f8-a7f3-ae30ee9308ec.png)
 
+Hecho esto, se puede volver a la página de inicio y seleccionar dashboard. Se puede crear un dashboard para observar toda las visualizaciones de un índice, si no se ha creado uno, se lo puede hacer con el botón create dashboard. Dentro del dashboard habrá un botón para crear visualizaciones, al seleccionarlo, se abrirá un editor donde se deberá seleccionar el tipo de gráfico, el patrón de índice a utilizar y las columnas del índice para construir el gráfico.
 
-![imagen](https://user-images.githubusercontent.com/58041267/133682194-e30f3bee-132a-479b-8789-bead6af6aad8.png)
+![image](https://user-images.githubusercontent.com/66144847/133683486-9c12bc9d-7948-4ea4-8b3e-5c887887c037.png)
 
+Dependerá de los datos el tipo de gráfico que se pueda hacer, se deberán conocer las columnas y experimentar para averiguar que tipo de gráfico permite visualizar mejor la información.
+Para este caso se construyeron dos gráficos:
 
-Como sabemos Logstash es parte del preprocesameinto antes de guardar la información en Elasticsearch, por lo tanto, el proceso básicamente consistió en:
+![image](https://user-images.githubusercontent.com/66144847/133683691-c1c683ad-7a34-4ec4-86da-8a2b630f9fec.png)
 
-1. Se procede a poner en marcha cerebro con el fin de poder conectarnos con elastic cloud, el cual hemos creado para uso del equipo del proyecto.
+Este gráfico muestra el juego más popular a nivel mundial, para hallar esto, se agregaron las apariciones de un juego como más popular en varios países y se creó un total que permite concluir que el juego más popular del mundo se ganó ese título ya que una mayoría de países lo consideraron como el más popular dentro de sus países. Por otro lado, el juego menos popular solo fue seleccionado en un solo país.
 
+![image](https://user-images.githubusercontent.com/66144847/133684024-a697e031-ab5d-48f6-bb77-0c77530a4a61.png)
 
-![imagen](https://user-images.githubusercontent.com/58041267/133683051-c2013c0e-a6a3-4996-b329-2f1c8e0cf9e5.png)
+El segundo gráfico permite ver en que coordenadas un juego es popular, el dataset especificaba las coordenadas de los países que eligieron al juego más popular, por ende, si se saca el promedio de todas las coordenadas que eligieron un mismo juego se puede observar el promedio de las coordenadas donde cada juego es jugado, esto se ilustó con un gráfico de barras apiladas
 
+![image](https://user-images.githubusercontent.com/66144847/133684469-bf0cbf2b-31da-458d-b142-c4abf5759ae5.png)
 
+Una vez creados y guardados estos gráficos, se podrá observar como el dashboard los muestra
 
-2. Poner en marcha logstash.
-
-
-![imagen](https://user-images.githubusercontent.com/58041267/133683102-ebe09887-c5bd-4af8-b095-9ec7fbf0018e.png)
-
-3. Usando Kibana, importar el archivo csv mediante File Data Visualizer que se encuentra en la sección Machine Learning > Visualización de datos
-
-
-![imagen](https://user-images.githubusercontent.com/58041267/133683186-88bba947-481d-40f2-9e33-0c24134c82e7.png)
-![imagen](https://user-images.githubusercontent.com/58041267/133683343-1e252b8b-2a7f-4de1-8054-4849431f49fe.png)
-![imagen](https://user-images.githubusercontent.com/58041267/133683379-ee940b84-f52c-4750-a905-c6a90ad199a6.png)
-
-4. Utilizando Discover y Visualizer, realizar la visualización de datos del archivo mediante gráficas.
-
-
-![imagen](https://user-images.githubusercontent.com/58041267/133683498-96f711e4-6c3b-4514-904a-97d0d7612426.png)
-![imagen](https://user-images.githubusercontent.com/58041267/133683548-6071f3ca-457b-41e3-93da-84d4e4acab6a.png)
+![image](https://user-images.githubusercontent.com/66144847/133684534-5c8dd0db-5b9f-4ed8-9ab5-fb251c0738eb.png)
 
 
 
