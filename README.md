@@ -24,6 +24,12 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![cerebroterminal](https://user-images.githubusercontent.com/85883884/133671898-0dbd2a19-4b09-4995-8486-536250a6d594.png)
 
+3. Luego de ejecutar cerebro, ingresamos en la interfaz de cerebro con las credenciales para trabajar en la nube y se ve de la siguiente manera
+
+![elasticinterfaz](https://user-images.githubusercontent.com/85883884/133672326-8d86d24f-736f-43d5-9f31-87c7a94f0a93.png)
+
+
+
 
 
 ## Extraccion de datos "Twitter"
