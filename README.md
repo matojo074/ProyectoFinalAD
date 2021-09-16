@@ -22,9 +22,9 @@ Para la extraccion de datos con Web scraping tenemos que identificar el tema del
 
 ![image](https://user-images.githubusercontent.com/65979995/133649835-32b99e81-de43-4bf7-9ef9-cc805c9f86d2.png)
 
-2.  Se utiliza el siguiente codigo para generar los csv
+2.  Se utiliza el siguiente codigo para generar los csv (revisar codigo en la carpeta web scraping)
 
-https://github.com/matojo074/ProyectoFinalAD/blob/a2c7e7fdcd6f88c369a76186978de1ebe18a818d/Web%20Scraping/Web%20Scraping%20Argentina.ipynb
+Web Scraping Argentina.ipynb
 
 3.  Creamos la bse de datos en sql para la subida de datos
 
@@ -66,9 +66,9 @@ Nota: para mejorar la configuracion y como opcional, es la seccion que se presen
 
 ![image](https://user-images.githubusercontent.com/65979995/133654225-dfc9db03-3515-4ed5-8455-fb469559b715.png)
 
-9. Se procede a subir al logstash, para este paso se creo un jdbc del cual se fue modificando en cada subida de datos, para poder subir los datos de todas las tablas.
+9. Se procede a subir al logstash, para este paso se creo un jdbc del cual se fue modificando en cada subida de datos, para poder subir los datos de todas las tablas. (Revisar carpeta web scraping) 
 
-https://github.com/matojo074/ProyectoFinalAD/blob/4356db33aeb1dbdf3c4e95940dcf015c067abb5d/Web%20Scraping/jdbc.conf
+jdbc.conf
 
 10. Para poder comenzar la subida, no dirijimos en nuestro terminal a la carpeta que contenga el ejecutable de logstash y el jdbc.conf (usualmente se ponen en la misma carpeta) y ejecutamos el comando "  logstash -f jdbc.conf  " (sin comillas), y posterior a ellos se verifica en elastic la subida de datos
 
