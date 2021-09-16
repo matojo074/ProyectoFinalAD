@@ -245,3 +245,26 @@ Como sabemos Logstash es parte del preprocesameinto antes de guardar la informac
 
 
 
+# Tiktok Scraper
+Para realizar las visualizaciones se utiliza Kibana dentro de logstash lo cual permite mediante los datos crear visualizaciones, para ello se puede usar el nodo existente en elastic o cargar manualmente la data.
+Una vez se tenga la data se pueden observar los campos que tiene.
+![limpieza4](https://user-images.githubusercontent.com/58042139/133687534-ed48b734-0846-49a7-9413-e7a1b25bb978.jpg)
+
+Ya con el archivo cargado con sus campos correspondientes se procede a realizar las visualizaciones.
+###
+### Caso 1: en este caso se pueden observar el numero de seguidores que tiene cada usuario que subio un video que contenga el hashtag de noticias. Como se puede observar que un usuario sobresale sobre el resto.
+
+![image](https://user-images.githubusercontent.com/58042139/133688467-c6a8ae0b-b180-4f51-b886-132f6eb4370e.png)
+
+### Caso 2: en este caso se utilizo una nube de palabras para visualizar el nombre de usuarios o nicknames de las personas que subieron videos con el hashtag "noticias". En algunos casos se puede observar un identificador unico de usuario para los que no tienen Nickname.
+
+![image](https://user-images.githubusercontent.com/58042139/133688976-81caa0e8-0ca9-4d0d-a620-077444bb86a9.png)
+
+### Caso 3: En este caso se utilizo un diagrama de pastel para ver los porcentajes de los registros de los sonidos utilizados comunmente en los videos. Se puede observar que la mayoria usa audios en comun, mientras que un 25% utiliza sus propios audios en los videos y no añaden contenido musical en común.
+
+![image](https://user-images.githubusercontent.com/58042139/133689427-587d2ec6-de7f-4b9b-87aa-4ae92bbcf5a8.png)
+
+### Caso 4: En este caso se utilizo un diagrama de barras horizontales para analizar el número de comentarios que reciben los titulos de los videos.
+
+![image](https://user-images.githubusercontent.com/58042139/133689724-4f79d45f-83e2-4f31-834a-db36bcdc0b70.png)
+
