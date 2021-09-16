@@ -33,8 +33,12 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![correrlogstash](https://user-images.githubusercontent.com/85883884/133673872-34521e3c-b37c-449c-b94b-a500f5718d4b.png)
 
+5. Luego de correr Logstash se corre el script realizado en python para que los datos extraidos de facebook vayan a CouchDB y también se almacenen en Elastic 
 
 
+![couchBases](https://user-images.githubusercontent.com/85883884/133674677-6f61f3ea-d1dc-4a00-8af9-c7b435bfb27a.png)
+
+![datosenelastic](https://user-images.githubusercontent.com/85883884/133674897-8137d767-f1ad-4e77-acde-b034f6370964.png)
 
 
 
