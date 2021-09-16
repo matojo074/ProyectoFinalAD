@@ -84,3 +84,7 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 ![image](https://user-images.githubusercontent.com/66144847/133665096-b4b35fac-2f6f-47c7-b401-f8eaaa331a94.png)
 
 
+
+# Parte 2 Explicacion de caso y graficos.
+
+
