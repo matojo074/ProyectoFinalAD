@@ -22,9 +22,9 @@ Para la extraccion de datos con Web scraping tenemos que identificar el tema del
 
 ![image](https://user-images.githubusercontent.com/65979995/133649835-32b99e81-de43-4bf7-9ef9-cc805c9f86d2.png)
 
-2.  Se utiliza el siguiente codigo para generar los csv (revisar codigo en la carpeta web scraping)
+2.  Se utiliza el siguiente codigo para generar los csv
 
-Web Scraping Argentina.ipynb
+https://github.com/matojo074/ProyectoFinalAD/blob/a2c7e7fdcd6f88c369a76186978de1ebe18a818d/Web%20Scraping/Web%20Scraping%20Argentina.ipynb
 
 3.  Creamos la bse de datos en sql para la subida de datos
 
@@ -66,17 +66,21 @@ Nota: para mejorar la configuracion y como opcional, es la seccion que se presen
 
 ![image](https://user-images.githubusercontent.com/65979995/133654225-dfc9db03-3515-4ed5-8455-fb469559b715.png)
 
-9. Se procede a subir al logstash, para este paso se creo un jdbc del cual se fue modificando en cada subida de datos, para poder subir los datos de todas las tablas. (Revisar carpeta web scraping) 
+9. Se procede a subir al logstash, para este paso se creo un jdbc del cual se fue modificando en cada subida de datos, para poder subir los datos de todas las tablas.
 
-jdbc.conf
+https://github.com/matojo074/ProyectoFinalAD/blob/4356db33aeb1dbdf3c4e95940dcf015c067abb5d/Web%20Scraping/jdbc.conf
 
-10. Para poder comenzar la subida, no dirijimos en nuestro terminal a la carpeta que contenga el ejecutable de logstash y el jdbc.conf (usualmente se ponen en la misma carpeta) y ejecutamos el comando "  logstash -f jdbc.conf  " (sin comillas), y posterior a ellos se verifica en elastic la subida de datos
+10. Para poder comenzar la subida, nos dirijimos en nuestro terminal a la carpeta que contenga el ejecutable de logstash y el jdbc.conf (usualmente se ponen en la misma carpeta) y ejecutamos el comando "  logstash -f jdbc.conf  " (sin comillas), y posterior a ellos se verifica en elastic la subida de datos
 
 ![image](https://user-images.githubusercontent.com/65979995/133654816-2fc0feca-2e35-440a-b511-f5028c2456db.png)
 
+## Almacenamiento de Datos "Kaggle"
+Kaggle es un repositorio de datasets donde se pueden encontrar datos listos para usarse de casi cualquier tema, en este caso se encontró un dataset que muestra el videojuego mas popular por país. Este dataset se puede observar en el siguiente link: https://www.kaggle.com/ezgitural/the-most-popular-video-games-in-the-world
+
+El proceso para poblar ElasticSearch con una fuente de datos estática como Kaggle es el siguiente:
+1. Se comienza descargando el archivo y pasándolo a formato CSV, este archivo estaba en formato excel por lo que pasarlo a CSV solo requirió guardarlo. Si se tuvieran archivos en formato JSON, el proceso sería más complicado.
+2. Eliminar los encabezados de la tabla ya que estos podrían causar problemas al momento de importar el archivo. Los datos se deberían ver así
+
+![image](https://user-images.githubusercontent.com/66144847/133665096-b4b35fac-2f6f-47c7-b401-f8eaaa331a94.png)
 
 
-
-# Parte 2: Analisis de casos
-
-##web scraping
