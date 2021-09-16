@@ -11,7 +11,7 @@ Integrantes:
 # Parte 1: Extracción y Almacenamiento de Datos
 
 ## Extracción de datos "Facebook"
-Para la extraccion de datos de Facebook primero debemos definir qué datos necesitamos que en este caso serán de juegos en líea qu en este caso serán de las páginas de FIFA de diferentes países como Ecuador, Argentina, Colombia, México y de la página oficial de EA sports y luego se utilizó un script de extracción de datos para realizarlo.
+Para la extracción de datos de Facebook primero debemos definir qué datos necesitamos, en este caso serán de juegos en línea sacados de las páginas de FIFA de diferentes países como Ecuador, Argentina, Colombia, México y de la página oficial de EA sports, se utilizó un script de extracción de datos para realizarlo.
 
 1. Antes de correr el script en python para extraer los datos se debe correr el elasticsearchcon el siguiente comando en el terminal.
 ![comandoElastic](https://user-images.githubusercontent.com/85883884/133670480-d80e7742-de10-47db-9f66-80eecc6f7e8a.png)
