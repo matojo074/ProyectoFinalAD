@@ -40,6 +40,8 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ## Extraccion de datos "Twitter"
 
+La conexión a Twitter se puede realizar de varias maneras, en este caso decidemos 
+1.  Entramos a la aplicacion de RappidMiner
 
 ## Extracción de datos "Web scraping"
 Para la extraccion de datos con Web scraping tenemos que identificar el tema del cual vamos a extraer la información, en nuestro caso fue el porcentaje de población vacunada en diferentes países de Latinoamérica.
