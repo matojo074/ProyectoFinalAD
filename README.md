@@ -40,8 +40,6 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ## Extraccion de datos "Twitter"
 
-La conexión a Twitter se puede realizar de varias maneras, en este caso decidemos 
-1.  Entramos a la aplicacion de RappidMiner
 
 ## Extracción de datos "Web scraping"
 Para la extraccion de datos con Web scraping tenemos que identificar el tema del cual vamos a extraer la información, en nuestro caso fue el porcentaje de población vacunada en diferentes países de Latinoamérica.
@@ -147,7 +145,7 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 # Parte 2 Explicacion de caso y graficos.
 
 ## Web Scraping
-
+### Caso 1 : Proceso de vacunación y administración en diferentes países latinoamericanos.
 Tabla y grafica de pais Argentina: El crecimiento constante del proceso de vacunacion en Argentina, se puede considerar como aceptable, debido a que hay que tener en cuenta al nivel poblacional del mismo.
 
 ![image](https://user-images.githubusercontent.com/65979995/133667033-3bead1a0-0985-415e-9d51-2013780d7541.png)
