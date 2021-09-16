@@ -69,6 +69,36 @@ Para la extraccion de datos de Facebook primero debemos definir qué datos neces
 
 ![image](https://user-images.githubusercontent.com/66786471/133687070-b16818b1-70d4-421f-ab55-a4b2ec32f727.png)
 
+5.  Junto a estos seleccionadores añadiremos un transformador de DATA a JSON con el fin de que los archivos guardados en MongoDB sean JSON para mayor facilidad.
+
+![image](https://user-images.githubusercontent.com/66786471/133687317-9c72f875-1f78-41af-afe1-9343f01ecbee.png)
+
+6.  Ya una vez transformada la información pasamos a crear otra conexión pero esta vez para MongoDB y de igual manera usar el operador Retrive junto Multiply que nos ayudara a crear copias de objetos de RapidMiner y también un operador de escritura en mongo donde ingresaremos cada unos de los JSON convertidos y estableceremos la conexión con la base de datos. 
+
+![image](https://user-images.githubusercontent.com/66786471/133687352-55624e0e-6b15-49a1-a0db-a54a9ee991fa.png)
+
+7.  Una vez realizado este procedimiento con cada una de las coordenadas respectivas a cada ciudad podemos evidenciar la información recolectada en nuestro MongoDB donde tenemos la base de datos Titter_Mongo y la colección Pulso_Politico20 con 402 documentos registrados.
+
+![image](https://user-images.githubusercontent.com/66786471/133687402-519f87fb-0423-4a20-a79c-b390fd35c327.png)
+
+8.  Para poder conectarnos a elasticsearch se intentó con varios métodos desde códigos, hasta transferir la conexión a CouchDB sin embargo el único camino que dio resultado fue importar los datos de Mongo en un archivo CSV  y posterior a ello subirlos a phpMyAdmin.
+
+![image](https://user-images.githubusercontent.com/66786471/133687441-6ccd5122-5235-4e0f-82e8-b7684e06e67d.png)
+
+10. Una vez ya generado el CSV exitosamente se procede a crear la base de datos Twitter2Mongo.
+
+![image](https://user-images.githubusercontent.com/66786471/133687484-13a94d92-c4f9-417e-81e5-1f04a3522ca6.png)
+![image](https://user-images.githubusercontent.com/66786471/133687491-09c71857-4dbf-4cec-bc85-9d7bc250e934.png)
+
+11. Ahora para la conexión respectiva con Elasticsearch nos ayudaremos de la herramienta Logstash que nos permite una conexión con la aplicación de Elastic en la nube. Para ello necesitaremos de un archivo de configuración como el siguiente en la carpeta bin de logstash.
+
+![image](https://user-images.githubusercontent.com/66786471/133687564-dd018db7-7855-4c69-8f22-459d7dd11e4c.png)
+
+12. Corremos el logstash y esperamos hasta que la base de datos sea subida correctamente.
+
+![image](https://user-images.githubusercontent.com/66786471/133687628-8567ec94-770e-4548-b298-d12c3a1ec597.png)
+
+
 
 
 ## Extracción de datos "Web scraping"
