@@ -87,4 +87,12 @@ El proceso para poblar ElasticSearch con una fuente de datos estática como Kagg
 
 # Parte 2 Explicacion de caso y graficos.
 
+## Web Scraping
+
+Tabla y grafica pais Argentina: El crecimiento constante del proceso de vacunacion en Argentina, se puede considerar como aceptable, debido a que hay que tener en cuenta al nivel poblacional del mismo.
+
+![image](https://user-images.githubusercontent.com/65979995/133667033-3bead1a0-0985-415e-9d51-2013780d7541.png)
+
+ ![image](https://user-images.githubusercontent.com/65979995/133667234-76a16dad-25e9-4cdb-8637-7e07aff9c3b8.png)
+
 
